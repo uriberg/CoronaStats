@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@nivo/bar": "0.59.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -13,6 +14,7 @@
     "@types/react-dom": "^16.9.7",
     "axios": "^0.19.2",
     "lodash": "^4.17.15",
+    "nivo": "^0.31.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -36,7 +38,9 @@
     "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
     "build:css": "npm-run-all compile:sass prefix:css compress:css",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "clean": "rmdir /s /q node_modules",
+    "reinstall": "npm run clean && npm install"
   },
   "eslintConfig": {
     "extends": "react-app"

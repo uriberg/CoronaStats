@@ -1,17 +1,10 @@
 
 
+@import "abstracts/variables";
+
 @import "base/base";
 
-.stickP{
-  position: sticky !important;
-  top: 0;
-  z-index: 2;
+@import "components/corona-table";
 
-  &:hover{
-    background-color: green !important;
-  }
-}
+@import "pages/home";
 
-.ui.sortable.table thead th.sorted {
-  background: #666699 !important;
-}

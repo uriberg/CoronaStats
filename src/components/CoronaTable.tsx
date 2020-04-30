@@ -50,11 +50,7 @@ class CoronaTable extends Component {
                         console.log(today[i].country);
                         today[i].activeChange = 0;
                     } else {
-                        if (today[i].active > yesterday[i].active) {
-                            today[i].activeChange = +(today[i].active / yesterday[i].active).toFixed(2);
-                        } else {
-                            today[i].activeChange = +(today[i].active / yesterday[i].active * 100 - 100).toFixed(2);
-                        }
+                        today[i].activeChange = +(today[i].active / yesterday[i].active * 100 - 100).toFixed(2);
                     }
 
                     //today[i].activeChange = today[i].active - yesterday[i].active;
@@ -89,7 +85,7 @@ class CoronaTable extends Component {
         const {column, data, direction} = this.state;
 
         return (
-            <div  style={{overflowX: "scroll", height: '80vh'}}>
+            <div style={{overflowX: "scroll", height: '80vh'}}>
                 <table className="ui single line celled unstackable bottom attached table sortable"
                        style={{display: "table"}}>
                     <Table.Header>
@@ -97,37 +93,42 @@ class CoronaTable extends Component {
                             <Table.HeaderCell
                                 sorted={column === 'country' ? direction : null}
                                 onClick={this.handleSort('country')}
-                                className="stickP"
+                                className="table-header__cell"
                             >
                                 Name
                             </Table.HeaderCell>
                             <Table.HeaderCell
                                 sorted={column === 'cases' ? direction : null}
                                 onClick={this.handleSort('cases')}
+                                className="table-header__cell"
                             >
                                 Total <br/>Cases
                             </Table.HeaderCell>
                             <Table.HeaderCell
                                 sorted={column === 'todayCases' ? direction : null}
                                 onClick={this.handleSort('todayCases')}
+                                className="table-header__cell"
                             >
                                 New <br/>Cases
                             </Table.HeaderCell>
                             <Table.HeaderCell
                                 sorted={column === 'deaths' ? direction : null}
                                 onClick={this.handleSort('deaths')}
+                                className="table-header__cell"
                             >
                                 Total <br/>Deaths
                             </Table.HeaderCell>
                             <Table.HeaderCell
                                 sorted={column === 'active' ? direction : null}
                                 onClick={this.handleSort('active')}
+                                className="table-header__cell"
                             >
                                 Active<br/>Cases
                             </Table.HeaderCell>
                             <Table.HeaderCell
                                 sorted={column === 'activeChange' ? direction : null}
                                 onClick={this.handleSort('activeChange')}
+                                className="table-header__cell"
                             >
                                 Active Cases <br/> Change
                             </Table.HeaderCell>

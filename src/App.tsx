@@ -1,14 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
 import './sass/main.scss';
-import CoronaTable from "./components/CoronaTable";
-import Graph from "./components/graph";
+import Home from "./containers/home";
 
 function App() {
   return (
     <div className="App">
-      <CoronaTable/>
-      <Graph/>
+        <Home/>
     </div>
   );
 }
