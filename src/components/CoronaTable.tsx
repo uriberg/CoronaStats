@@ -3,6 +3,15 @@ import React, {Component} from 'react';
 import {Table} from 'semantic-ui-react';
 import axios from 'axios';
 
+
+
+
+const headers = {
+    'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+};
+
+
 interface countryRow {
     country: string,
     cases: number
@@ -19,7 +28,7 @@ class CoronaTable extends Component {
     };
 
     componentDidMount(): void {
-        axios.get("https://corona.lmao.ninja/v2/countries?yesterday=false")
+        axios.get("https://disease.sh/v2/countries?yesterday=false")
             .then(response => {
                 console.log(response.data);
                 //let temp = this.state.data;
@@ -40,17 +49,27 @@ class CoronaTable extends Component {
     getYesterdayStats = () => {
         axios.get("https://corona.lmao.ninja/v2/countries?yesterday=true")
             .then(response => {
+                console.log(response.data);
                 console.log('before for loop');
                 console.log(this.state.data);
                 let today = this.state.data;
                 let yesterday = response.data;
+                let j = 0;
+
+
+                for(let i = 0; i <today.length; i++, j++){
+                    if (today[i].country !== yesterday[i].country){
+                        today.splice(i, 1);
+                    }
+                }
+
                 for (let i = 0; i < today.length; i++) {
-                    console.log(today[i].activeChange);
                     if (today[i].active === 0 && yesterday[i].active === 0) {
-                        console.log(today[i].country);
                         today[i].activeChange = 0;
                     } else {
-                        today[i].activeChange = +(today[i].active / yesterday[i].active * 100 - 100).toFixed(2);
+                            console.log(today[i].active);
+                            console.log(yesterday[i].active);
+                            today[i].activeChange = +(today[i].active / yesterday[i].active * 100 - 100).toFixed(2);
                     }
 
                     //today[i].activeChange = today[i].active - yesterday[i].active;
