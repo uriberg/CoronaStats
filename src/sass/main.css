@@ -7,8 +7,9 @@
 
 html {
   /*this defines what 1rem is*/
-  font-size: 62.5%;
-  /*this changes the root font-size !!  1rem = 10px because 10px/16px = 62.5%*/ }
+  font-size: 62.5% !important;
+  /*this changes the root font-size !!  1rem = 10px because 10px/16px = 62.5%*/
+  overflow: auto; }
 
 body {
   box-sizing: border-box;

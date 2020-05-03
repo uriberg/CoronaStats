@@ -52,7 +52,7 @@ const MyResponsiveBar = ({ data, theme /* see data tab */ }) => (
         axisTop={null}
         axisRight={null}
         axisBottom={{
-            tickSize: 5,
+            tickSize: 0,
             tickPadding: 5,
             tickRotation: 0,
             legend: '',
@@ -74,17 +74,17 @@ const MyResponsiveBar = ({ data, theme /* see data tab */ }) => (
         legends={[
             {
                 dataFrom: 'keys',
-                anchor: 'bottom-right',
-                direction: 'column',
+                anchor: 'bottom',
+                direction: 'row',
                 justify: false,
-                translateX: 120,
-                translateY: 0,
+                translateX: 30,
+                translateY: 55,
                 itemsSpacing: 2,
                 itemWidth: 100,
                 itemHeight: 20,
                 itemDirection: 'left-to-right',
                 itemOpacity: 0.85,
-                symbolSize: 20,
+                symbolSize: 10,
                 effects: [
                     {
                         on: 'hover',

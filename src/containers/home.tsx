@@ -644,7 +644,7 @@ class Home extends Component {
                 <div className="home__graphs">
                     <Graph data={this.state.dailyCases}/>
                 </div>
-                <div style={{height: "500px"}}>
+                <div style={{height: "500px"}} className="barChart">
                     <MyResponsiveBar data={data} theme={lineGraphSettings.theme}/>
                 </div>
             </div>

@@ -4,11 +4,9 @@ import {Table} from 'semantic-ui-react';
 import axios from 'axios';
 
 
-
-
 const headers = {
     'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
+    'Content-Type': 'application/json',
 };
 
 
@@ -57,8 +55,8 @@ class CoronaTable extends Component {
                 let j = 0;
 
 
-                for(let i = 0; i <today.length; i++, j++){
-                    if (today[i].country !== yesterday[i].country){
+                for (let i = 0; i < today.length; i++, j++) {
+                    if (today[i].country !== yesterday[i].country) {
                         today.splice(i, 1);
                     }
                 }
@@ -67,9 +65,9 @@ class CoronaTable extends Component {
                     if (today[i].active === 0 && yesterday[i].active === 0) {
                         today[i].activeChange = 0;
                     } else {
-                            console.log(today[i].active);
-                            console.log(yesterday[i].active);
-                            today[i].activeChange = +(today[i].active / yesterday[i].active * 100 - 100).toFixed(2);
+                        console.log(today[i].active);
+                        console.log(yesterday[i].active);
+                        today[i].activeChange = +(today[i].active / yesterday[i].active * 100 - 100).toFixed(2);
                     }
 
                     //today[i].activeChange = today[i].active - yesterday[i].active;
@@ -104,57 +102,58 @@ class CoronaTable extends Component {
         const {column, data, direction} = this.state;
 
         return (
-            <div style={{overflowX: "scroll", height: '80vh'}}>
-                <table className="ui single line celled unstackable bottom attached table sortable"
-                       style={{display: "table"}}>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell
-                                sorted={column === 'country' ? direction : null}
-                                onClick={this.handleSort('country')}
-                                className="table-header__cell"
-                            >
-                                Name
-                            </Table.HeaderCell>
-                            <Table.HeaderCell
-                                sorted={column === 'cases' ? direction : null}
-                                onClick={this.handleSort('cases')}
-                                className="table-header__cell"
-                            >
-                                Total <br/>Cases
-                            </Table.HeaderCell>
-                            <Table.HeaderCell
-                                sorted={column === 'todayCases' ? direction : null}
-                                onClick={this.handleSort('todayCases')}
-                                className="table-header__cell"
-                            >
-                                New <br/>Cases
-                            </Table.HeaderCell>
-                            <Table.HeaderCell
-                                sorted={column === 'deaths' ? direction : null}
-                                onClick={this.handleSort('deaths')}
-                                className="table-header__cell"
-                            >
-                                Total <br/>Deaths
-                            </Table.HeaderCell>
-                            <Table.HeaderCell
-                                sorted={column === 'active' ? direction : null}
-                                onClick={this.handleSort('active')}
-                                className="table-header__cell"
-                            >
-                                Active<br/>Cases
-                            </Table.HeaderCell>
-                            <Table.HeaderCell
-                                sorted={column === 'activeChange' ? direction : null}
-                                onClick={this.handleSort('activeChange')}
-                                className="table-header__cell"
-                            >
-                                Active Cases <br/> Change
-                            </Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-                    <Table.Body>
-                        <style>{`
+            <div className="table-wrapper">
+                <div className="scroller">
+                    <table className="ui single line celled unstackable bottom attached table sortable Flip"
+                           style={{display: "table"}}>
+                        <Table.Header>
+                            <Table.Row>
+                                <Table.HeaderCell
+                                    sorted={column === 'country' ? direction : null}
+                                    onClick={this.handleSort('country')}
+                                    className="table-header__cell"
+                                >
+                                    Name
+                                </Table.HeaderCell>
+                                <Table.HeaderCell
+                                    sorted={column === 'cases' ? direction : null}
+                                    onClick={this.handleSort('cases')}
+                                    className="table-header__cell"
+                                >
+                                    Total <br/>Cases
+                                </Table.HeaderCell>
+                                <Table.HeaderCell
+                                    sorted={column === 'todayCases' ? direction : null}
+                                    onClick={this.handleSort('todayCases')}
+                                    className="table-header__cell"
+                                >
+                                    New <br/>Cases
+                                </Table.HeaderCell>
+                                <Table.HeaderCell
+                                    sorted={column === 'deaths' ? direction : null}
+                                    onClick={this.handleSort('deaths')}
+                                    className="table-header__cell"
+                                >
+                                    Total <br/>Deaths
+                                </Table.HeaderCell>
+                                <Table.HeaderCell
+                                    sorted={column === 'active' ? direction : null}
+                                    onClick={this.handleSort('active')}
+                                    className="table-header__cell"
+                                >
+                                    Active<br/>Cases
+                                </Table.HeaderCell>
+                                <Table.HeaderCell
+                                    sorted={column === 'activeChange' ? direction : null}
+                                    onClick={this.handleSort('activeChange')}
+                                    className="table-header__cell"
+                                >
+                                    Active Cases <br/> Change
+                                </Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Header>
+                        <Table.Body>
+                            <style>{`
             @media (max-width: 767px){
                     .ui.table:not(.unstackable) tbody{
               display: table-row-group !important;
@@ -173,19 +172,20 @@ class CoronaTable extends Component {
              }
             }
           `}</style>
-                        {_.map(data, ({country, cases, todayCases, deaths, active, activeChange}) => (
-                            <Table.Row key={country}>
-                                <Table.Cell><a href="#">{country}</a></Table.Cell>
-                                <Table.Cell>{cases}</Table.Cell>
-                                <Table.Cell>{todayCases}</Table.Cell>
-                                <Table.Cell>{deaths}</Table.Cell>
-                                <Table.Cell>{active}</Table.Cell>
-                                <Table.Cell>{activeChange + "%"}</Table.Cell>
-                            </Table.Row>
-                        ))}
-                    </Table.Body>
-                </table>
+                            {_.map(data, ({country, cases, todayCases, deaths, active, activeChange}) => (
+                                <Table.Row key={country}>
+                                    <Table.Cell><a href="#">{country}</a></Table.Cell>
+                                    <Table.Cell>{cases}</Table.Cell>
+                                    <Table.Cell>{todayCases}</Table.Cell>
+                                    <Table.Cell>{deaths}</Table.Cell>
+                                    <Table.Cell>{active}</Table.Cell>
+                                    <Table.Cell>{activeChange + "%"}</Table.Cell>
+                                </Table.Row>
+                            ))}
+                        </Table.Body>
+                    </table>
 
+                </div>
             </div>
         )
     }

@@ -12,3 +12,69 @@
 .ui.sortable.table thead th.sorted {
   background: #666699 !important;
 }
+
+.ui.table tr td:first-child {
+  //position: sticky !important;
+  //z-index: 20;
+  //left: 0;
+  //top: auto;
+  //background: #333;
+  white-space: normal;
+}
+
+.scroller {
+  //margin-left: 141px;
+  //overflow-x: scroll;
+  //overflow-y: visible;
+  //padding-bottom: 5px;
+  //width: 300px;
+  //transform:rotateX(180deg);
+}
+
+.table-wrapper {
+  position: relative;
+}
+
+.Flip {
+  //transform: rotateX(180deg);
+}
+
+svg g line + text[text-anchor="middle"]{
+  display: none;
+}
+
+svg g[transform="translate(0,0)"] line + text[text-anchor="middle"]{
+  display: block;
+}
+
+svg g:nth-child(4n + 1) line + text[text-anchor="middle"]{
+  display: block;
+}
+
+
+svg g:nth-child(3n + 1) text ~ line{
+  display: none;
+}
+
+//svg g:nth-child(1) line + text[text-anchor="middle"]{
+//  display: none !important;
+//}
+
+
+
+//svg g:nth-child(3n + 1) line + text[text-anchor="middle"] {
+//  font-size: 5px !important;
+//  display: block;
+//  stroke: none !important;
+//}
+
+.barChart {
+  @media only screen and(max-width: 600px)  {
+    width: 115%;
+  }
+
+  @media only screen and(max-width: 400px)  {
+    width: 125%;
+  }
+
+}
