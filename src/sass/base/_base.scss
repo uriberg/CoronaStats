@@ -9,6 +9,10 @@ html {
   /*this defines what 1rem is*/
   font-size: 62.5% !important; /*this changes the root font-size !!  1rem = 10px because 10px/16px = 62.5%*/
   overflow: auto;
+
+  @media only screen and(max-width: 600px)  {
+    font-size: 50% !important;
+  }
 }
 
 body {

@@ -9,7 +9,19 @@ import dateformat from 'dateformat';
 const lineGraphSettings = {
     theme: {
         fontSize: '1.1rem',
+        "tooltip": {
+            "container": {
+                "position": "absolute",
+                "left": "50%",
+                "transform": "translateX(-50%)",
+                "margin-top": 25,
+                "font-size": "1.5rem"
+            }
+        }
     },
+    tooltip: {
+        fontSize: 2
+    }
 };
 
 class Home extends Component {
@@ -36,16 +48,18 @@ class Home extends Component {
                 for (let i = 1; i < data.length; i++) {
                     let daily = {
                         x: i,
-                        y: data[i].Confirmed - data[i-1].Confirmed,
+                        y: data[i].Confirmed - data[i - 1].Confirmed,
                         Date: dateformat(data[i].Date, "mmm dS"),
-                        Deaths: data[i].Confirmed - data[i-1].Confirmed
+                        Deaths: data[i].Confirmed - data[i - 1].Confirmed
                     };
                     temp.push(daily);
                 }
                 console.log(temp);
                 this.setState({dailyCases: temp});
             })
-            .catch(err => {console.log(err)});
+            .catch(err => {
+                console.log(err)
+            });
     }
 
     render() {
@@ -58,8 +72,10 @@ class Home extends Component {
                 <div className="home__graphs">
                     <Graph data={this.state.dailyCases}/>
                 </div>
-                <div style={{height: "500px"}} className="barChart">
-                    <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}/>
+                <div>
+                    <div style={{height: "500px"}} className="barChart">
+                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}/>
+                    </div>
                 </div>
             </div>
         );
