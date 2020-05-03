@@ -39,7 +39,7 @@
   //transform: rotateX(180deg);
 }
 
-svg g line + text[text-anchor="middle"]{
+svg g line + text[text-anchor="start"]{
   display: none;
 }
 
@@ -47,14 +47,29 @@ svg g[transform="translate(0,0)"] line + text[text-anchor="middle"]{
   display: block;
 }
 
-svg g:nth-child(4n + 1) line + text[text-anchor="middle"]{
+svg g:nth-child(4n + 1) line + text[text-anchor="start"]{
   display: block;
+  @media only screen and(max-width: 600px)  {
+    display: none;
+  }
+  //transform: rotate(-90deg) translateY(5px);
+}
+
+svg g:nth-child(8n + 1) line + text[text-anchor="start"]{
+  @media only screen and(max-width: 600px)  {
+    display: block;
+  }
+  //transform: rotate(-90deg) translateY(5px);
 }
 
 
-svg g:nth-child(3n + 1) text ~ line{
-  display: none;
-}
+//svg g:nth-child(3n + 1) text ~ line{
+//  display: none;
+//}
+
+
+
+
 
 //svg g:nth-child(1) line + text[text-anchor="middle"]{
 //  display: none !important;
@@ -69,6 +84,8 @@ svg g:nth-child(3n + 1) text ~ line{
 //}
 
 .barChart {
+  padding-bottom: 4rem;
+
   @media only screen and(max-width: 600px)  {
     width: 115%;
   }

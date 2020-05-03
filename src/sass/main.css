@@ -13,7 +13,8 @@ html {
 
 body {
   box-sizing: border-box;
-  padding: 3rem; }
+  padding: 3rem;
+  overflow: auto !important; }
 
 .table-header__cell {
   position: sticky !important;
@@ -24,6 +25,29 @@ body {
 
 .ui.sortable.table thead th.sorted {
   background: #666699 !important; }
+
+.ui.table tr td:first-child {
+  white-space: normal; }
+
+.table-wrapper {
+  position: relative; }
+
+svg g line + text[text-anchor="start"] {
+  display: none; }
+
+svg g[transform="translate(0,0)"] line + text[text-anchor="middle"] {
+  display: block; }
+
+svg g:nth-child(4n + 1) line + text[text-anchor="start"] {
+  display: block; }
+
+@media only screen and (max-width: 600px) {
+  .barChart {
+    width: 115%; } }
+
+@media only screen and (max-width: 400px) {
+  .barChart {
+    width: 125%; } }
 
 .home {
   max-width: 114rem;

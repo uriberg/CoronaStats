@@ -10,8 +10,8 @@ const MyResponsiveBar = ({ data, theme /* see data tab */ }) => (
     <ResponsiveBar
         data={data}
         theme={theme}
-        keys={[ 'donut' ]}
-        indexBy="country"
+        keys={[ 'Deaths' ]}
+        indexBy="Date"
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
         padding={0.3}
         colors={{ scheme: 'nivo' }}
@@ -53,10 +53,10 @@ const MyResponsiveBar = ({ data, theme /* see data tab */ }) => (
         axisRight={null}
         axisBottom={{
             tickSize: 0,
-            tickPadding: 5,
-            tickRotation: 0,
+            tickPadding: 4,
+            tickRotation: 45,
             legend: '',
-            legendPosition: 'middle',
+            legendPosition: 'start',
             legendOffset: 32,
             tickValues: 2,
         }}
@@ -64,7 +64,7 @@ const MyResponsiveBar = ({ data, theme /* see data tab */ }) => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'food',
+            legend: 'daily deaths',
             legendPosition: 'middle',
             legendOffset: -40
         }}
@@ -77,7 +77,7 @@ const MyResponsiveBar = ({ data, theme /* see data tab */ }) => (
                 anchor: 'bottom',
                 direction: 'row',
                 justify: false,
-                translateX: 30,
+                translateX: 20,
                 translateY: 55,
                 itemsSpacing: 2,
                 itemWidth: 100,
