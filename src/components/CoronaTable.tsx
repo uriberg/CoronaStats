@@ -105,7 +105,7 @@ class CoronaTable extends Component {
             <div className="table-wrapper">
                 <div className="scroller">
                     <table className="ui single line celled unstackable bottom attached table sortable Flip"
-                           style={{display: "table"}}>
+                           style={{display: "table", fontSize: "1.2rem"}}>
                         <Table.Header>
                             <Table.Row>
                                 <Table.HeaderCell

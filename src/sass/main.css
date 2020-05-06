@@ -10,6 +10,9 @@ html {
   font-size: 62.5% !important;
   /*this changes the root font-size !!  1rem = 10px because 10px/16px = 62.5%*/
   overflow: auto; }
+  @media only screen and (max-width: 600px) {
+    html {
+      font-size: 50% !important; } }
 
 body {
   box-sizing: border-box;
@@ -40,14 +43,19 @@ svg g[transform="translate(0,0)"] line + text[text-anchor="middle"] {
 
 svg g:nth-child(4n + 1) line + text[text-anchor="start"] {
   display: block; }
+  @media only screen and (max-width: 600px) {
+    svg g:nth-child(4n + 1) line + text[text-anchor="start"] {
+      display: none; } }
 
 @media only screen and (max-width: 600px) {
-  .barChart {
-    width: 115%; } }
+  svg g:nth-child(8n + 1) line + text[text-anchor="start"] {
+    display: block; } }
 
-@media only screen and (max-width: 400px) {
-  .barChart {
-    width: 125%; } }
+svg g rect {
+  stroke-width: 1px; }
+
+.barChart {
+  padding-bottom: 4rem; }
 
 .home {
   max-width: 114rem;
