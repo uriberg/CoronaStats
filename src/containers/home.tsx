@@ -1,28 +1,11 @@
 import React, {Component} from 'react';
 import CoronaTable from "../components/CoronaTable";
 import Graph from "../components/graph";
-import BarChart from "../components/barChart";
 import MyResponsiveBar from "../components/barChart";
 import axios from 'axios';
 import dateformat from 'dateformat';
-
-const lineGraphSettings = {
-    theme: {
-        fontSize: '1.1rem',
-        "tooltip": {
-            "container": {
-                "position": "absolute",
-                "left": "50%",
-                "transform": "translateX(-50%)",
-                "margin-top": 25,
-                "font-size": "1.5rem"
-            }
-        }
-    },
-    tooltip: {
-        fontSize: 2
-    }
-};
+import {lineGraphSettings} from '../constants/barChart';
+import Header from "../layout/header";
 
 class Home extends Component {
 
@@ -65,8 +48,10 @@ class Home extends Component {
     render() {
         return (
             <div className="home">
+                <Header/>
+
                 <div className="home__table">
-                    <CoronaTable/>
+                    <CoronaTable filter={false}/>
                 </div>
 
                 <div className="home__graphs">

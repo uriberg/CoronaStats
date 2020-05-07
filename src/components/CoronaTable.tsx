@@ -4,20 +4,19 @@ import {Table} from 'semantic-ui-react';
 import axios from 'axios';
 
 
-const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Content-Type': 'application/json',
-};
-
-
 interface countryRow {
     country: string,
     cases: number
 }
 
+interface AllProps {
+    filter: boolean
+    continent?: string
+}
+
 let tableData: countryRow [] = [];
 
-class CoronaTable extends Component {
+class CoronaTable extends Component<AllProps> {
     state = {
         column: null,
         data: [],
@@ -31,11 +30,17 @@ class CoronaTable extends Component {
                 console.log(response.data);
                 //let temp = this.state.data;
                 let temp = response.data;
+                let result = [];
                 for (let i = 0; i < temp.length; i++) {
-                    temp[i].activeChange = "";
+                    console.log(this.props.filter);
+                    if(!this.props.filter || (this.props.filter && (this.props.continent.localeCompare(temp[i].continent) === 0))){
+                        temp[i].activeChange = "";
+                        result.push(temp[i]);
+                    }
                 }
+                console.log(result);
                 //temp.push(response.data);
-                this.setState({data: temp});
+                this.setState({data: result});
                 console.log(this.state.data);
                 this.getYesterdayStats();
             })
@@ -51,8 +56,14 @@ class CoronaTable extends Component {
                 console.log('before for loop');
                 console.log(this.state.data);
                 let today = this.state.data;
-                let yesterday = response.data;
+                let yesterday = [];
                 let j = 0;
+
+                for(let i = 0; i <response.data.length; i++){
+                    if(!this.props.filter || (this.props.filter && (this.props.continent!.localeCompare(response.data[i].continent!) === 0))){
+                        yesterday.push(response.data[i]);
+                    }
+                }
 
 
                 for (let i = 0; i < today.length; i++, j++) {
