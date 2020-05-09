@@ -13,7 +13,7 @@ const MyResponsiveBar = ({ data, theme /* see data tab */ }) => (
         keys={[ 'Deaths' ]}
         indexBy="Date"
         margin={{ top: 50, right: 30, bottom: 50, left: 50 }}
-        padding={0.8}
+        padding={0.7}
         colors={{ scheme: 'nivo' }}
         defs={[
             {

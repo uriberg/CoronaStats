@@ -9,14 +9,17 @@ import Graph from "./components/graph";
 import MyResponsiveBar from "./components/barChart";
 import CoronaTable from "./components/CoronaTable";
 import Continent from "./containers/continent";
+import Country from "./containers/country";
+import Header from "./layout/header";
 
 const routing = (
     <Router>
         <div>
+            <Header/>
             <Switch>
                 <Route exact path="/" component={App} />
-                <Route path="/continent/:continent" component={Continent} />
-                <Route path="/country/:country" component={MyResponsiveBar} />
+                <Route path="/continent/:continent" component={Continent}/>
+                <Route path="/country/:country" component={props => (<Country {...props} />)} />
                 <Route component={CoronaTable} />
             </Switch>
         </div>
