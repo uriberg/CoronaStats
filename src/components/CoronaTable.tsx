@@ -21,10 +21,24 @@ class CoronaTable extends Component<AllProps> {
         column: null,
         data: [],
         direction: null,
-        yesterday: []
+        yesterday: [],
+        continent: this.props.continent
     };
 
     componentDidMount(): void {
+        console.log(this.state.continent);
+        this.init();
+    }
+
+    componentDidUpdate(prevProps: Readonly<AllProps>, prevState: Readonly<{}>, snapshot?: any): void {
+        if(prevProps.continent !== this.props.continent){
+            console.log(this.props.continent);
+            this.setState({continent: this.props.continent});
+            this.init();
+        }
+    }
+
+    init = () => {
         axios.get("https://disease.sh/v2/countries?yesterday=false")
             .then(response => {
                 console.log(response.data);
@@ -47,7 +61,7 @@ class CoronaTable extends Component<AllProps> {
             .catch(err => {
                 console.log(err)
             });
-    }
+    };
 
     getYesterdayStats = () => {
         axios.get("https://corona.lmao.ninja/v2/countries?yesterday=true")
@@ -185,7 +199,7 @@ class CoronaTable extends Component<AllProps> {
           `}</style>
                             {_.map(data, ({country, cases, todayCases, deaths, active, activeChange}) => (
                                 <Table.Row key={country}>
-                                    <Table.Cell><a href="#">{country}</a></Table.Cell>
+                                    <Table.Cell><a href={`/country/` + country}>{country}</a></Table.Cell>
                                     <Table.Cell>{cases}</Table.Cell>
                                     <Table.Cell>{todayCases}</Table.Cell>
                                     <Table.Cell>{deaths}</Table.Cell>
