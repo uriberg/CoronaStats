@@ -25,7 +25,9 @@ class Home extends Component {
                     x: 0,
                     y: data[0].Confirmed,
                     Date: firstDate,
-                    Deaths: data[0].Confirmed
+                    Cases: data[0].Confirmed,
+                    Deaths: data[0].Deaths,
+                    ActiveCases: data[0].Active
                 };
                 temp.push(firstDayObject);
                 for (let i = 1; i < data.length; i++) {
@@ -33,7 +35,9 @@ class Home extends Component {
                         x: i,
                         y: data[i].Confirmed - data[i - 1].Confirmed,
                         Date: dateformat(data[i].Date, "mmm dS"),
-                        Deaths: data[i].Confirmed - data[i - 1].Confirmed
+                        Cases: data[i].Confirmed - data[i - 1].Confirmed,
+                        Deaths: data[i].Deaths - data[i - 1].Deaths,
+                        ActiveCases: data[i].Active
                     };
                     temp.push(daily);
                 }
@@ -51,13 +55,23 @@ class Home extends Component {
                 <div className="home__table">
                     <CoronaTable filter={false}/>
                 </div>
-
-                <div className="home__graphs">
-                    <Graph data={this.state.dailyCases}/>
-                </div>
+                {/*<div className="home__graphs">*/}
+                {/*    <Graph data={this.state.dailyCases}/>*/}
+                {/*</div>*/}
                 <div>
-                    <div style={{height: "500px"}} className="barChart">
-                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}/>
+                    <div style={{height: "500px"}} className="barChart cases-graph">
+                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
+                                        keys={'Cases'} AxisLeftLegend={'Daily cases'}/>
+                    </div>
+
+                    <div style={{height: "500px"}} className="barChart deaths-graph">
+                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
+                                         keys={'Deaths'} AxisLeftLegend={'Daily deaths'}/>
+                    </div>
+
+                    <div style={{height: "500px"}} className="barChart activeCases-graph">
+                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
+                                         keys={'ActiveCases'} AxisLeftLegend={'Currently Infected'}/>
                     </div>
                 </div>
             </div>

@@ -32,7 +32,9 @@ class Country extends Component<CountryProps> {
                     x: 0,
                     y: data[0].Confirmed,
                     Date: firstDate,
-                    Deaths: data[0].Confirmed
+                    Cases: data[0].Confirmed,
+                    Deaths: data[0].Deaths,
+                    ActiveCases: data[0].Active
                 };
                 temp.push(firstDayObject);
                 for (let i = 1; i < data.length; i++) {
@@ -40,7 +42,9 @@ class Country extends Component<CountryProps> {
                         x: i,
                         y: data[i].Confirmed - data[i - 1].Confirmed,
                         Date: dateformat(data[i].Date, "mmm dS"),
-                        Deaths: data[i].Confirmed - data[i - 1].Confirmed
+                        Cases: data[i].Confirmed - data[i - 1].Confirmed,
+                        Deaths: data[i].Deaths - data[i - 1].Deaths,
+                        ActiveCases: data[i].Active
                     };
                     temp.push(daily);
                 }
@@ -56,7 +60,18 @@ class Country extends Component<CountryProps> {
         return (
             <div className="country">
                 <div style={{height: "500px"}} className="barChart">
-                    <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}/>
+                    <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
+                                keys={'Cases'} AxisLeftLegend={'Daily cases'}/>
+                </div>
+
+                <div style={{height: "500px"}} className="barChart deaths-graph">
+                    <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
+                                     keys={'Deaths'} AxisLeftLegend={'Daily deaths'}/>
+                </div>
+
+                <div style={{height: "500px"}} className="barChart activeCases-graph">
+                    <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
+                                     keys={'ActiveCases'} AxisLeftLegend={'Currently Infected'}/>
                 </div>
             </div>
         );

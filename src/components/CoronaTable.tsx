@@ -90,8 +90,6 @@ class CoronaTable extends Component<AllProps> {
                     if (today[i].active === 0 && yesterday[i].active === 0) {
                         today[i].activeChange = 0;
                     } else {
-                        console.log(today[i].active);
-                        console.log(yesterday[i].active);
                         today[i].activeChange = +(today[i].active / yesterday[i].active * 100 - 100).toFixed(2);
                     }
 

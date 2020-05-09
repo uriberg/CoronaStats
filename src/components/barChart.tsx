@@ -6,11 +6,11 @@ import React from 'react';
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
-const MyResponsiveBar = ({ data, theme /* see data tab */ }) => (
+const MyResponsiveBar = ({ data, theme, keys, AxisLeftLegend /* see data tab */ }) => (
     <ResponsiveBar
         data={data}
         theme={theme}
-        keys={[ 'Deaths' ]}
+        keys={[ keys ]}
         indexBy="Date"
         margin={{ top: 50, right: 30, bottom: 50, left: 50 }}
         padding={0.7}
@@ -64,7 +64,7 @@ const MyResponsiveBar = ({ data, theme /* see data tab */ }) => (
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'daily deaths',
+            legend: AxisLeftLegend,
             legendPosition: 'middle',
             legendOffset: -40
         }}
