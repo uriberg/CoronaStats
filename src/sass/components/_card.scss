@@ -1,0 +1,30 @@
+
+.card {
+  padding: 1rem;
+
+  &--general, &--new-cases, &--active-cases, &--deaths {
+    background-color: #314455;
+  }
+
+  &--general, &--deaths {
+    grid-column: 1 / -1;
+  }
+
+  &__title {
+    text-align: center;
+  }
+
+  &__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+
+  &__item {
+
+    span {
+      margin-left: 5px;
+    }
+  }
+}

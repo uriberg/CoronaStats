@@ -1,0 +1,26 @@
+
+.country {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  &__cards {
+    display: grid;
+    grid-template-rows: repeat(3, 20vh);
+    grid-template-columns: repeat(2, 1fr);
+    grid-column: 1 / -1;
+    justify-items: center;
+    align-items: center;
+    color: mediumaquamarine;
+
+    &__graph {
+      //grid-column: 1 / 1;
+    }
+  }
+}
+
+.graphs {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  grid-gap: 2rem;
+}
+

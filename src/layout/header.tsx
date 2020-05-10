@@ -9,27 +9,27 @@ class Header extends Component {
     render() {
         return (
             <header className="header">
-                <ul>
-                    <li>
-                        <Link to="/">World</Link>
+                <ul className="nav">
+                    <li className="nav__item">
+                        <Link className="nav__link" to="/">World</Link>
                     </li>
-                    <li>
-                        <Link to="/continent/Europe">Europe</Link>
+                    <li className="nav__item">
+                        <Link className="nav__link" to="/continent/Europe">Europe</Link>
                     </li>
-                    <li>
-                        <Link to="/continent/Asia">Asia</Link>
+                    <li className="nav__item">
+                        <Link className="nav__link" to="/continent/Asia">Asia</Link>
                     </li>
-                    <li>
-                        <Link to="/continent/North_America">North America</Link>
+                    <li className="nav__item">
+                        <Link className="nav__link" to="/continent/North_America">North America</Link>
                     </li>
-                    <li>
-                        <Link to="/continent/South_America">South America</Link>
+                    <li className="nav__item">
+                        <Link className="nav__link" to="/continent/South_America">South America</Link>
                     </li>
-                    <li>
-                        <Link to="/continent/Africa">Africa</Link>
+                    <li className="nav__item">
+                        <Link className="nav__link" to="/continent/Africa">Africa</Link>
                     </li>
-                    <li>
-                        <Link to="/continent/Oceania">Oceania</Link>
+                    <li className="nav__item">
+                        <Link className="nav__link" to="/continent/Oceania">Oceania</Link>
                     </li>
                 </ul>
             </header>

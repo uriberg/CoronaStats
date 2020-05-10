@@ -19,6 +19,7 @@ body {
   box-sizing: border-box;
   padding: 3rem;
   overflow: auto !important;
+  font-size: inherit !important;
 
   @media only screen and (max-width: 600px) {
     padding: 0;

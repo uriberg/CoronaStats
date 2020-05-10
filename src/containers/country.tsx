@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { RouteComponentProps} from 'react-router-dom';
+import {RouteComponentProps} from 'react-router-dom';
 import axios from "axios";
 import dateformat from "dateformat";
 import MyResponsiveBar from "../components/barChart";
@@ -16,7 +16,14 @@ interface CountryProps extends RouteComponentProps<CountryRouterProps> {
 class Country extends Component<CountryProps> {
 
     state = {
-        dailyCases: []
+        dailyCases: [],
+        firstCase: "",
+        totalCases: "",
+        totalDeaths: "",
+        totalRecovered: "",
+        currentlyInfected: "",
+        deathsPerOneMillion: "",
+        testsPerOneMillion: ""
     };
 
     componentDidMount(): void {
@@ -49,7 +56,21 @@ class Country extends Component<CountryProps> {
                     temp.push(daily);
                 }
                 console.log(temp);
-                this.setState({dailyCases: temp});
+                this.setState({dailyCases: temp, firstCase: firstDayObject.Date});
+            })
+            .catch(err => {
+                console.log(err)
+            });
+        axios.get("https://disease.sh/v2/countries/" + this.props.match.params.country + "?yesterday=false")
+            .then(response => {
+                this.setState({
+                    totalCases: response.data.cases,
+                    totalDeaths: response.data.deaths,
+                    totalRecovered: response.data.recovered,
+                    currentlyInfected: response.data.active,
+                    deathsPerOneMillion: response.data.deathsPerOneMillion,
+                    testsPerOneMillion: response.data.testsPerOneMillion
+                });
             })
             .catch(err => {
                 console.log(err)
@@ -59,19 +80,69 @@ class Country extends Component<CountryProps> {
     render() {
         return (
             <div className="country">
-                <div style={{height: "500px"}} className="barChart">
-                    <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
-                                keys={'Cases'} AxisLeftLegend={'Daily cases'}/>
+                <div className="country__cards">
+                    <div className="card card--general">
+                        <h3 className="card__title">General</h3>
+                        <ul className="card__list">
+                            <li className="card__item">First Case: <span>{this.state.firstCase}</span></li>
+                            <li className="card__item">Total Cases: <span>{this.state.totalCases}</span></li>
+                            <li className="card__item">Total Deaths: <span>{this.state.totalDeaths}</span></li>
+                            <li className="card__item">Total Recovered: <span>{this.state.totalRecovered}</span>
+                            </li>
+                            <li className="card__item">Currently
+                                Infected: <span>{this.state.currentlyInfected}</span></li>
+                            <li className="card__item">Deaths Per 1
+                                Million: <span>{this.state.deathsPerOneMillion}</span></li>
+                            <li className="card__item">Tests Per 1
+                                Million: <span>{this.state.testsPerOneMillion}</span></li>
+                        </ul>
+                    </div>
+                    <div className="card card--new-cases">
+                        <h3 className="card__title">New Cases</h3>
+                        <ul className="card__list">
+                            <li className="card__item">Worse Day: <span>{this.state.firstCase}</span></li>
+                            <li className="card__item">Today: <span>{this.state.totalCases}</span></li>
+                            <li className="card__item">Last 7 days: <span>{this.state.totalDeaths}</span></li>
+                            <li className="card__item">Last 7 days Average: <span>{this.state.totalRecovered}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="card card--active-cases">
+                        <h3 className="card__title">Active Cases</h3>
+                        <ul className="card__list">
+                            <li className="card__item">Worse Day: <span>{this.state.firstCase}</span></li>
+                            <li className="card__item">Today: <span>{this.state.totalCases}</span></li>
+                            <li className="card__item">Change: <span>{this.state.totalDeaths}</span></li>
+                            <li className="card__item">Critical Condition: <span>{this.state.totalRecovered}</span></li>
+                        </ul>
+                    </div>
+                    <div className="card card--deaths">
+                        <h3 className="card__title">Deaths</h3>
+                        <ul className="card__list">
+                            <li className="card__item">Worse Day: <span>{this.state.firstCase}</span></li>
+                            <li className="card__item">Today: <span>{this.state.totalCases}</span></li>
+                            <li className="card__item">Last 7 days: <span>{this.state.totalDeaths}</span></li>
+                            <li className="card__item">Last 7 days average: <span>{this.state.totalRecovered}</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+                <div className="graphs">
 
-                <div style={{height: "500px"}} className="barChart deaths-graph">
-                    <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
-                                     keys={'Deaths'} AxisLeftLegend={'Daily deaths'}/>
-                </div>
+                    <div style={{height: "500px"}} className="barChart country__graph">
+                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
+                                         keys={'Cases'} AxisLeftLegend={'Daily cases'}/>
+                    </div>
 
-                <div style={{height: "500px"}} className="barChart activeCases-graph">
-                    <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
-                                     keys={'ActiveCases'} AxisLeftLegend={'Currently Infected'}/>
+                    <div style={{height: "500px"}} className="barChart country__graph">
+                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
+                                         keys={'Deaths'} AxisLeftLegend={'Daily deaths'}/>
+                    </div>
+
+                    <div style={{height: "500px"}} className="barChart country__graph">
+                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
+                                         keys={'ActiveCases'} AxisLeftLegend={'Currently Infected'}/>
+                    </div>
                 </div>
             </div>
         );
