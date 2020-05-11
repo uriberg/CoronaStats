@@ -58,22 +58,6 @@ class Home extends Component {
                 {/*<div className="home__graphs">*/}
                 {/*    <Graph data={this.state.dailyCases}/>*/}
                 {/*</div>*/}
-                <div>
-                    <div style={{height: "500px"}} className="barChart cases-graph">
-                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
-                                        keys={'Cases'} AxisLeftLegend={'Daily cases'}/>
-                    </div>
-
-                    <div style={{height: "500px"}} className="barChart deaths-graph">
-                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
-                                         keys={'Deaths'} AxisLeftLegend={'Daily deaths'}/>
-                    </div>
-
-                    <div style={{height: "500px"}} className="barChart activeCases-graph">
-                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
-                                         keys={'ActiveCases'} AxisLeftLegend={'Currently Infected'}/>
-                    </div>
-                </div>
             </div>
         );
     }

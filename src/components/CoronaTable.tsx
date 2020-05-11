@@ -196,8 +196,8 @@ class CoronaTable extends Component<AllProps> {
             }
           `}</style>
                             {_.map(data, ({country, cases, todayCases, deaths, active, activeChange}) => (
-                                <Table.Row key={country} style={{backgroundColor: "green", color:"white"}}>
-                                    <Table.Cell style={{backgroundColor: "red", color: "white"}}><a href={`/country/` + country} style={{color: "white"}}>{country}</a></Table.Cell>
+                                <Table.Row key={country}>
+                                    <Table.Cell><a href={`/country/` + country}>{country}</a></Table.Cell>
                                     <Table.Cell>{cases}</Table.Cell>
                                     <Table.Cell>{todayCases}</Table.Cell>
                                     <Table.Cell>{deaths}</Table.Cell>

@@ -2,6 +2,12 @@
 .country {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: calc(100vh - 88px) auto;
+
+  @media only screen and (max-width: 900px){
+    grid-template-rows: calc(100vh - 145px) auto;
+    grid-template-rows: calc(100vh - 145px) auto;
+  }
   &__cards {
     display: grid;
     grid-template-rows: repeat(3, 20vh);
@@ -16,7 +22,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 90vh;
+    //height: 90vh;
 
     @media only screen and (max-width: 800px){
       background-image: linear-gradient(to right bottom, rgba(16, 9, 9, 0.8), rgba(88, 40, 40, 0.8)), url(../../img/isaac-quesada-U0apbBgkOeQ-unsplash.jpg);

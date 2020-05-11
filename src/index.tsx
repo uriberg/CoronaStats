@@ -11,10 +11,11 @@ import CoronaTable from "./components/CoronaTable";
 import Continent from "./containers/continent";
 import Country from "./containers/country";
 import Header from "./layout/header";
+import "./index.scss";
 
 const routing = (
     <Router>
-        <div>
+        <div className="websiteWrapper">
             <Header/>
             <Switch>
                 <Route exact path="/" component={App} />

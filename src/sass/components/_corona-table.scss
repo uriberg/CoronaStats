@@ -5,14 +5,30 @@
   z-index: 2;
   white-space: normal !important;
   text-align: center !important;
+  color: #db2828 !important;
 
   &:hover{
-    background-color: green !important;
+    //background-color: green !important;
+  }
+}
+
+td {
+  a {
+    color: #bf2121;
+    font-weight: 700 !important;
   }
 }
 
 .ui.sortable.table thead th.sorted {
   background: #666699 !important;
+}
+
+
+.ui.celled.table tr td, .ui.celled.table tr th {
+  border-left: none !important;
+  color: #9a2525;
+  font-weight: bold;
+  text-align: center;
 }
 
 .ui.table tr td:first-child {
@@ -35,10 +51,27 @@
 
 .table-wrapper {
   position: relative;
+
+  animation-name: appearSlowly;
+  animation-duration: .5s;
+  animation-timing-function: ease-out;
+  animation-delay: 1.5s;
+  animation-fill-mode: backwards; /*apply the 0% styles before the animation starts */
+
 }
 
 .Flip {
   //transform: rotateX(180deg);
+  //animation-name: appearSlowly;
+  //animation-duration: .5s;
+  //animation-timing-function: ease-out;
+  //animation-delay: 2s;
+  //animation-fill-mode: backwards; /*apply the 0% styles before the animation starts */
+  //background-image: url(../../img/isaac-quesada-U0apbBgkOeQ-unsplash.jpg) !important;
+  //background-size: cover !important;
+  //background-repeat: no-repeat !important;
+  //background-position: center !important;
+  background-color: #6435c90d !important;
 }
 
 svg g line + text[text-anchor="start"]{
