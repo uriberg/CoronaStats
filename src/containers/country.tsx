@@ -80,6 +80,7 @@ class Country extends Component<CountryProps> {
     render() {
         return (
             <div className="country">
+                <div className="country__name">{this.props.match.params.country}</div>
                 <div className="country__cards">
                     <div className="card card--general">
                         <h3 className="card__title">General</h3>
@@ -89,8 +90,8 @@ class Country extends Component<CountryProps> {
                             <li className="card__item">Total Deaths: <span>{this.state.totalDeaths}</span></li>
                             <li className="card__item">Total Recovered: <span>{this.state.totalRecovered}</span>
                             </li>
-                            <li className="card__item">Currently
-                                Infected: <span>{this.state.currentlyInfected}</span></li>
+                            {/*<li className="card__item">Currently*/}
+                            {/*    Infected: <span>{this.state.currentlyInfected}</span></li>*/}
                             <li className="card__item">Deaths Per 1
                                 Million: <span>{this.state.deathsPerOneMillion}</span></li>
                             <li className="card__item">Tests Per 1
@@ -111,8 +112,8 @@ class Country extends Component<CountryProps> {
                         <h3 className="card__title">Active Cases</h3>
                         <ul className="card__list">
                             <li className="card__item">Worse Day: <span>{this.state.firstCase}</span></li>
-                            <li className="card__item">Today: <span>{this.state.totalCases}</span></li>
-                            <li className="card__item">Change: <span>{this.state.totalDeaths}</span></li>
+                            <li className="card__item">Currently Infected: <span>{this.state.totalCases}</span></li>
+                            <li className="card__item">Change from yesterday: <span>{this.state.totalDeaths}</span></li>
                             <li className="card__item">Critical Condition: <span>{this.state.totalRecovered}</span></li>
                         </ul>
                     </div>
@@ -127,6 +128,11 @@ class Country extends Component<CountryProps> {
                         </ul>
                     </div>
                 </div>
+
+                <section id="section03" className="demo">
+                    <a href="#section04"><span></span>Show Graphs</a>
+                </section>
+
                 <div className="graphs">
 
                     <div style={{height: "500px"}} className="barChart country__graph">

@@ -36,7 +36,6 @@ class Continent extends Component<ContinentProps> {
 
         return (
             <div className="continent">
-                <div>{continent}</div>
                 <CoronaTable filter={true} continent={Continents[continent]}/>
             </div>
         );

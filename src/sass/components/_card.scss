@@ -1,9 +1,18 @@
 
 .card {
   padding: 1rem;
+  outline: 1.5rem solid #db282814;
+  /* transform: scale(1.05) translateY(-0.5rem); */
+  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+  /* z-index: 20; */
+  color: #d4d4d5;
+  font-size: 1.3rem;
 
-  &--general, &--new-cases, &--active-cases, &--deaths {
+  &--new-cases, &--active-cases {
     //background-color: #314455;
+    @media only screen and (max-width: 900px) {
+      grid-column: 1 / -1;
+    }
   }
 
   &--general, &--deaths {
@@ -12,6 +21,7 @@
 
   &__title {
     text-align: center;
+    font-size: 1.6rem;
   }
 
   &__list {

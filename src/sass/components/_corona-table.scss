@@ -16,11 +16,15 @@ td {
   a {
     color: #bf2121;
     font-weight: 700 !important;
+
+    &:hover {
+      color: #820b0b66;
+    }
   }
 }
 
 .ui.sortable.table thead th.sorted {
-  background: #666699 !important;
+  background: #3c1a1c29 !important;
 }
 
 
