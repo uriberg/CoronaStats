@@ -10,6 +10,17 @@
     justify-items: center;
     align-items: center;
     color: mediumaquamarine;
+    font-weight: 700;
+
+    background-image: linear-gradient(to right bottom, rgba(16, 9, 9, 0.8), rgba(88, 40, 40, 0.8)), url(../../img/engin-akyurt-KtYvqysesC4-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90vh;
+
+    @media only screen and (max-width: 800px){
+      background-image: linear-gradient(to right bottom, rgba(16, 9, 9, 0.8), rgba(88, 40, 40, 0.8)), url(../../img/isaac-quesada-U0apbBgkOeQ-unsplash.jpg);
+    }
 
     &__graph {
       //grid-column: 1 / 1;
@@ -22,5 +33,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
   grid-gap: 2rem;
+
+  background-image: url(../../img/dimitri-karastelev-cIACWSlp474-unsplash.jpg);
 }
 

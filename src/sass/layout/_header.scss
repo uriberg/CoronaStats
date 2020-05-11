@@ -1,14 +1,37 @@
 
 .header {
-  padding: 4rem;
+  padding: 2rem;
   background-image: linear-gradient(to right, #022140, #265077);
+  //height: 10vh;
+  display: grid;
+  align-items: center;
+  font-size: 1.5rem;
+
+  @media only screen and (max-width: 900px) {
+    padding: 1.5rem;
+  }
 
   .nav {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     grid-gap: 2rem;
+    text-align: center;
+    letter-spacing: 1.1px;
     align-items: center;
+
+    @media only screen and (max-width: 900px) {
+      font-size: 1.3rem;
+      letter-spacing: 0.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+    }
+
+    &__item--africa {
+      @media only screen and (max-width: 900px) {
+        grid-column: 2 / 4;
+      }
+    }
+
 
     &__link:link, &__link:visited {
       text-transform: uppercase;

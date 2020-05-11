@@ -25,7 +25,7 @@ class Header extends Component {
                     <li className="nav__item">
                         <Link className="nav__link" to="/continent/South_America">South America</Link>
                     </li>
-                    <li className="nav__item">
+                    <li className="nav__item nav__item--africa">
                         <Link className="nav__link" to="/continent/Africa">Africa</Link>
                     </li>
                     <li className="nav__item">
