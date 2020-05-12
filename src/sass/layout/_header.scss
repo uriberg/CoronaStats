@@ -9,7 +9,7 @@
   font-size: 1.5rem;
 
   @media only screen and (max-width: 900px) {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .nav {
@@ -25,6 +25,7 @@
       font-size: 1.3rem;
       letter-spacing: 0.2rem;
       grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+      grid-gap: .5rem;
     }
 
     &__item--africa {
