@@ -4,6 +4,7 @@ import axios from "axios";
 import dateformat from "dateformat";
 import MyResponsiveBar from "../components/barChart";
 import {lineGraphSettings} from "../constants/barChart";
+import ScrollTo from 'react-scroll-into-view';
 
 interface CountryRouterProps {
     country: string
@@ -23,11 +24,14 @@ class Country extends Component<CountryProps> {
         totalRecovered: "",
         currentlyInfected: "",
         deathsPerOneMillion: "",
-        testsPerOneMillion: ""
+        testsPerOneMillion: "",
+        showGraphs: false
     };
 
     componentDidMount(): void {
         console.log(this.props.match.params.country);
+
+
         axios.get("https://api.covid19api.com/total/dayone/country/" + this.props.match.params.country)
             .then(response => {
                 console.log(response.data);
@@ -76,6 +80,18 @@ class Country extends Component<CountryProps> {
                 console.log(err)
             });
     }
+
+    componentDidUpdate(prevProps: Readonly<CountryProps>, prevState: Readonly<{}>, snapshot?: any): void {
+        console.log(this.state.showGraphs);
+
+    }
+
+    showGraphs = () => {
+        //this.setState({showGraphs: true});
+        const myRef = React.createRef();
+        //document.findElementById("test1").scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelector("#test1").scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
 
     render() {
         return (
@@ -129,11 +145,13 @@ class Country extends Component<CountryProps> {
                     </div>
                 </div>
 
-                <section id="section03" className="demo">
-                    <a href="#section04"><span></span>Show Graphs</a>
-                </section>
 
-                <div className="graphs">
+                    <div id="section03" className="demo">
+                        <a onClick={this.showGraphs}><span></span>Show Graphs</a>
+                    </div>
+
+                <div id="test1" className="graphs"
+                     style={this.state.showGraphs ? {display: "grid"} : {display: "grid"}} ref="test1">
 
                     <div style={{height: "500px"}} className="barChart country__graph">
                         <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
