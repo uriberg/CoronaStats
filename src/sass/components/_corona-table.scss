@@ -10,6 +10,14 @@
   &:hover{
     //background-color: green !important;
   }
+
+  @media only screen and (max-width: 900px) {
+    height: 85px !important;
+  }
+
+  @media only screen and (max-width: 600px) {
+    height: 61px !important;
+  }
 }
 
 td {
@@ -62,7 +70,11 @@ td {
   animation-delay: 1.5s;
   animation-fill-mode: backwards; /*apply the 0% styles before the animation starts */
 
-  padding: 5rem 0;
+  padding: 5rem;
+
+  @media only screen and (max-width: 900px) {
+    padding: 3rem;
+  }
 
   @media only screen and (max-width: 600px) {
     padding: 0;

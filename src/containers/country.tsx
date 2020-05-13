@@ -243,8 +243,8 @@ class Country extends Component<CountryProps> {
                         <ul className="card__list">
                             <li className="card__item">Worse Day: <span>{this.state.worseActiveCasesDate}</span></li>
                             <li className="card__item">Currently Infected: <span>{this.state.currentlyInfected}</span></li>
-                            <li className="card__item">Change from yesterday: <span>{this.state.activeCasesChange}%</span></li>
                             <li className="card__item">Critical Condition: <span>{this.state.criticalCondition}</span></li>
+                            <li className="card__item">Change from yesterday: <span>{this.state.activeCasesChange}%</span></li>
                         </ul>
                     </div>
                     <div className="card card--deaths">
