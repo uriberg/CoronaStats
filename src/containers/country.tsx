@@ -267,17 +267,17 @@ class Country extends Component<CountryProps> {
                 <div id="test1" className="graphs"
                      style={this.state.showGraphs ? {display: "grid"} : {display: "grid"}} ref="test1">
 
-                    <div style={{height: "500px"}} className="barChart country__graph">
+                    <div className="barChart country__graph">
                         <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
                                          keys={'Cases'} AxisLeftLegend={'Daily cases'}/>
                     </div>
 
-                    <div style={{height: "500px"}} className="barChart country__graph">
+                    <div className="barChart country__graph">
                         <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
                                          keys={'Deaths'} AxisLeftLegend={'Daily deaths'}/>
                     </div>
 
-                    <div style={{height: "500px"}} className="barChart country__graph">
+                    <div className="barChart country__graph">
                         <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
                                          keys={'ActiveCases'} AxisLeftLegend={'Currently Infected'}/>
                     </div>
