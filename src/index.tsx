@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css';
-import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
+import {Route, Link, BrowserRouter as Router, Switch} from 'react-router-dom'
 import Graph from "./components/graph";
 import MyResponsiveBar from "./components/barChart";
 import CoronaTable from "./components/CoronaTable";
@@ -17,23 +17,24 @@ const routing = (
     <Router>
         <div className="websiteWrapper">
             <Header/>
-            <Switch>
-                <Route exact path="/" component={App} />
-                <Route path="/continent/:continent" component={Continent}/>
-                <Route path="/country/:country" component={props => (<Country {...props} />)} />
-                <Route component={CoronaTable} />
-            </Switch>
+            <div className="containersWrapper">
+                <Switch>
+                    <Route exact path="/" component={App}/>
+                    <Route path="/continent/:continent" component={Continent}/>
+                    <Route path="/country/:country" component={props => (<Country {...props} />)}/>
+                    <Route component={CoronaTable}/>
+                </Switch>
+            </div>
         </div>
     </Router>
 );
 
 
-
 ReactDOM.render(
-  <React.StrictMode>
-      {routing}
-  </React.StrictMode>,
-  document.getElementById('root')
+    <React.StrictMode>
+        {routing}
+    </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
