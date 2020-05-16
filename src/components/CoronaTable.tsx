@@ -2,6 +2,7 @@ import _ from 'lodash';
 import React, {Component} from 'react';
 import {Table} from 'semantic-ui-react';
 import axios from 'axios';
+import {Countries} from '../constants/corona-table';
 
 
 interface countryRow {

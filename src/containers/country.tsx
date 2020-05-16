@@ -5,6 +5,7 @@ import dateformat from "dateformat";
 import MyResponsiveBar from "../components/barChart";
 import {lineGraphSettings} from "../constants/barChart";
 import ScrollTo from 'react-scroll-into-view';
+import {Countries} from "../constants/corona-table";
 
 interface CountryRouterProps {
     country: string
@@ -42,7 +43,8 @@ class Country extends Component<CountryProps> {
 
     componentDidMount(): void {
         console.log(this.props.match.params.country);
-        axios.get("https://api.covid19api.com/total/dayone/country/" + this.props.match.params.country)
+        console.log(Countries[this.props.match.params.country].value);
+        axios.get("https://api.covid19api.com/total/dayone/country/" + Countries[this.props.match.params.country].value)
             .then(response => {
                 console.log(response.data);
                 let data = response.data;
