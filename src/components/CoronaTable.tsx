@@ -49,7 +49,7 @@ class CoronaTable extends Component<AllProps> {
         if (prevProps.continent !== this.props.continent) {
             console.log(this.props.continent);
             console.log('updated!!');
-            this.setState({continent: this.props.continent, temp: true});
+            this.setState({continent: this.props.continent, temp: true, loading: true});
             console.log(prevState.loading);
             this.init();
 
@@ -59,6 +59,7 @@ class CoronaTable extends Component<AllProps> {
             //this.setSort(prevState.data, prevState.direction, prevState.column);
         }
     }
+
 
     init = () => {
         axios.get("https://disease.sh/v2/countries?yesterday=false")
@@ -77,22 +78,23 @@ class CoronaTable extends Component<AllProps> {
                 }
                 console.log(result);
                 //temp.push(response.data);
-                this.setState({data: result});
+                //this.setState({data: result});
                 console.log(this.state.data);
-                this.getYesterdayStats();
+                this.getYesterdayStats(result);
             })
             .catch(err => {
                 console.log(err)
             });
     };
 
-    getYesterdayStats = async () => {
+    getYesterdayStats = async (data: any) => {
         await axios.get("https://corona.lmao.ninja/v2/countries?yesterday=true")
             .then(response => {
                 console.log(response.data);
                 console.log('before for loop');
                 console.log(this.state.data);
-                let today = this.state.data;
+                //let today = this.state.data;
+                let today = data;
                 let yesterday = [];
                 let j = 0;
 
@@ -118,7 +120,7 @@ class CoronaTable extends Component<AllProps> {
 
                     //today[i].activeChange = today[i].active - yesterday[i].active;
                 }
-                this.setState({data: today, loading: false});
+                //this.setState({data: today});
                 this.setSort(today, this.state.direction, this.state.column);
             })
             .catch(err => {
@@ -151,12 +153,21 @@ class CoronaTable extends Component<AllProps> {
             if (direction === 'descending') {
                 temp.reverse();
             }
-            this.setState({
-                data: temp,
-                direction: direction === 'ascending' ? 'ascending' : 'descending',
-                loading: false,
-                temp: false
-            })
+            window.setTimeout(() => {
+                this.setState({
+                    data: temp,
+                    direction: direction === 'ascending' ? 'ascending' : 'descending',
+                    loading: false,
+                    temp: false
+                });
+            }, 500);
+        } else {
+            window.setTimeout(() => {
+                this.setState({
+                    data: data,
+                    loading: false
+                });
+            }, 500);
         }
     };
 
@@ -169,7 +180,7 @@ class CoronaTable extends Component<AllProps> {
                     {/*<div>*/}
                     <Spinner/>
                 </div>
-                    <div className={["table-wrapper", !this.state.loading ? 'fadeIn' : 'fadeOut'].join(' ')}>
+              <div className={["table-wrapper", !this.state.loading ? 'fadeIn' : 'fadeOut'].join(' ')}>
                         <div className="scroller">
                             <table className="ui single line celled unstackable bottom attached table sortable Flip"
                                    style={{display: "table"}}>
@@ -251,7 +262,6 @@ class CoronaTable extends Component<AllProps> {
                                     ))}
                                 </Table.Body>
                             </table>
-
                         </div>
                     </div>
                 </div>
