@@ -19,6 +19,7 @@ class Continent extends Component<ContinentProps> {
 
     componentDidMount(): void {
         console.log(this.props.match.params);
+        console.log(this.state.continent);
     }
 
     componentDidUpdate(prevProps: Readonly<ContinentProps>, prevState: Readonly<{}>, snapshot?: any): void {

@@ -9,9 +9,11 @@ import Graph from "./components/graph";
 import MyResponsiveBar from "./components/barChart";
 import CoronaTable from "./components/CoronaTable";
 import Continent from "./containers/continent";
+import Home from "./containers/home"
 import Country from "./containers/country";
 import Header from "./layout/header";
 import "./index.scss";
+import "./sass/main.scss";
 
 const routing = (
     <Router>
@@ -19,7 +21,7 @@ const routing = (
             <Header/>
             <div className="containersWrapper">
                 <Switch>
-                    <Route exact path="/" component={App}/>
+                    <Route exact path="/" component={Continent}/>
                     <Route path="/continent/:continent" component={Continent}/>
                     <Route path="/country/:country" component={props => (<Country {...props} />)}/>
                     <Route component={CoronaTable}/>

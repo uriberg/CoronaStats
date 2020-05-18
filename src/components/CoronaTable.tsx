@@ -40,11 +40,14 @@ class CoronaTable extends Component<AllProps> {
 
     componentDidMount(): void {
         console.log(this.state.continent);
+        console.log(this.props.filter);
         this.init();
     }
 
+
     componentDidUpdate(prevProps: Readonly<AllProps>, prevState: any, snapshot?: any): void {
         // console.log(this.state.data);
+        //console.log(prevState);
 
         if (prevProps.continent !== this.props.continent) {
             console.log(this.props.continent);
@@ -71,7 +74,7 @@ class CoronaTable extends Component<AllProps> {
                 let result = [];
                 for (let i = 0; i < temp.length; i++) {
                     console.log(this.props.filter);
-                    if (!this.props.filter || (this.props.filter && (this.props.continent.localeCompare(temp[i].continent) === 0))) {
+                    if (this.props.continent === undefined || !this.props.filter || (this.props.filter && (this.props.continent.localeCompare(temp[i].continent) === 0))) {
                         temp[i].activeChange = "";
                         result.push(temp[i]);
                     }
@@ -99,7 +102,7 @@ class CoronaTable extends Component<AllProps> {
                 let j = 0;
 
                 for (let i = 0; i < response.data.length; i++) {
-                    if (!this.props.filter || (this.props.filter && (this.props.continent!.localeCompare(response.data[i].continent!) === 0))) {
+                    if (this.state.continent === undefined || !this.props.filter || (this.props.filter && (this.props.continent!.localeCompare(response.data[i].continent!) === 0))) {
                         yesterday.push(response.data[i]);
                     }
                 }
