@@ -17,6 +17,8 @@
 @keyframes appearSlowly {
   0% {
     opacity: 0; }
+  25%, 75% {
+    opacity: 0.25; }
   100% {
     opacity: 1; } }
 
@@ -79,12 +81,6 @@ td a {
 
 .table-wrapper {
   position: relative;
-  animation-name: appearSlowly;
-  animation-duration: .5s;
-  animation-timing-function: ease-out;
-  animation-delay: 1.5s;
-  animation-fill-mode: backwards;
-  /*apply the 0% styles before the animation starts */
   padding: 5rem; }
   @media only screen and (max-width: 900px) {
     .table-wrapper {
@@ -129,6 +125,31 @@ svg g rect {
   @media only screen and (max-height: 500px) {
     .barChart {
       height: 100vh; } }
+
+.fadeOut {
+  opacity: 0;
+  transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s; }
+
+.fadeIn {
+  opacity: 1;
+  transition: all .5s .2s; }
+
+.spin {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.superWrapper {
+  position: relative; }
+
+.temp {
+  animation-name: appearSlowly;
+  animation-duration: 5s;
+  animation-timing-function: ease-out;
+  animation-delay: 5s;
+  animation-fill-mode: backwards;
+  /*apply the 0% styles before the animation starts */ }
 
 .card {
   padding: 1rem;
@@ -212,11 +233,8 @@ svg g rect {
       animation-fill-mode: backwards;
       /*apply the 0% styles before the animation starts */ }
 
-.home {
-  max-width: 114rem;
-  margin: 0 auto; }
-  .home__graphs {
-    padding: 5rem 0; }
+.home__graphs {
+  padding: 5rem 0; }
 
 .country {
   display: grid;
@@ -233,7 +251,8 @@ svg g rect {
     text-align: center;
     display: inline-block;
     height: 5rem;
-    margin-top: 35px; }
+    margin-top: 35px;
+    letter-spacing: 1.5rem; }
   .country__cards {
     display: grid;
     min-height: calc(100vh - 74px);
