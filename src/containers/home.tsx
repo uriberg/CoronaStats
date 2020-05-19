@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
 import CoronaTable from "../components/CoronaTable";
-import Graph from "../components/graph";
-import MyResponsiveBar from "../components/barChart";
 import axios from 'axios';
 import dateformat from 'dateformat';
-import {lineGraphSettings} from '../constants/barChart';
-import Header from "../layout/header";
-import Continent from "./continent";
 
 class Home extends Component {
 
@@ -56,9 +51,6 @@ class Home extends Component {
                 <div className="home__table">
                     <CoronaTable filter={false} continent={""}/>
                 </div>
-                {/*<div className="home__graphs">*/}
-                {/*    <Graph data={this.state.dailyCases}/>*/}
-                {/*</div>*/}
             </div>
         );
     }

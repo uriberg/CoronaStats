@@ -4,7 +4,6 @@ import axios from "axios";
 import dateformat from "dateformat";
 import MyResponsiveBar from "../components/barChart";
 import {lineGraphSettings} from "../constants/barChart";
-import ScrollTo from 'react-scroll-into-view';
 import {Countries} from "../constants/corona-table";
 
 interface CountryRouterProps {

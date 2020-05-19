@@ -4,12 +4,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css';
-import {Route, Link, BrowserRouter as Router, Switch} from 'react-router-dom'
-import Graph from "./components/graph";
-import MyResponsiveBar from "./components/barChart";
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 import CoronaTable from "./components/CoronaTable";
 import Continent from "./containers/continent";
-import Home from "./containers/home"
 import Country from "./containers/country";
 import Header from "./layout/header";
 import "./index.scss";
