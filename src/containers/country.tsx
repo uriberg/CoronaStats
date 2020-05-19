@@ -1,10 +1,15 @@
-import React, {Component} from 'react';
+import React, {Component, Suspense} from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 import axios from "axios";
 import dateformat from "dateformat";
-import MyResponsiveBar from "../components/barChart";
-import {lineGraphSettings} from "../constants/barChart";
+
+import Spinner from '../components/UI/Spinner';
 import {Countries} from "../constants/corona-table";
+import {lineGraphSettings} from "../constants/barChart";
+const MyResponsiveBar = React.lazy(() => import('../components/barChart'));
+//import MyResponsiveBar from "../components/barChart";
+
+
 
 interface CountryRouterProps {
     country: string
@@ -79,7 +84,7 @@ class Country extends Component<CountryProps> {
                         worseActiveCasesNumber = daily.ActiveCases;
                         worseActiveCasesDate = dateformat(data[i].Date, "mmm dS");
                     }
-                    if (daily.Cases > worseNewCasesNumber){
+                    if (daily.Cases > worseNewCasesNumber) {
                         worseNewCasesNumber = daily.Cases;
                         worseNewCasesDate = dateformat(data[i].Date, "mmm dS");
                     }
@@ -94,7 +99,7 @@ class Country extends Component<CountryProps> {
 
                 let lastSevenDaysNewCases = 0;
                 let lastSevenDaysNewDeaths = 0;
-                for (let i = temp.length - 1, j = 0; j < 7; i--, j++){
+                for (let i = temp.length - 1, j = 0; j < 7; i--, j++) {
                     lastSevenDaysNewCases += temp[i].Cases;
                     lastSevenDaysNewDeaths += temp[i].Deaths;
                 }
@@ -111,7 +116,7 @@ class Country extends Component<CountryProps> {
                     worseNewCasesNumber: worseNewCasesNumber,
                     worseNewCasesDate: worseNewCasesDate,
                     worseNewDeathsNumber: worseNewDeathsNumber,
-                    worseNewDeathsDate:  worseNewDeathsDate,
+                    worseNewDeathsDate: worseNewDeathsDate,
                     lastSevenDaysNewCases: lastSevenDaysNewCases,
                     lastSevenDaysNewDeaths: lastSevenDaysNewDeaths
                 });
@@ -149,16 +154,15 @@ class Country extends Component<CountryProps> {
                 console.log(this.state.currentlyInfected);
                 let activeCasesChange = +(this.state.currentlyInfected / response.data.active * 100 - 100).toFixed(2);
                 console.log(activeCasesChange);
-                    this.setState({activeCasesChange: activeCasesChange});
-                    console.log(this.state);
-                    if (this.state.currentlyInfected > this.state.worseActiveCasesNumber || response.data.active > this.state.worseActiveCasesNumber){
-                    if (activeCasesChange > 0){
+                this.setState({activeCasesChange: activeCasesChange});
+                console.log(this.state);
+                if (this.state.currentlyInfected > this.state.worseActiveCasesNumber || response.data.active > this.state.worseActiveCasesNumber) {
+                    if (activeCasesChange > 0) {
                         this.setState({
                             worseActiveCasesDate: "Today",
                             worseActiveCasesNumber: this.state.currentlyInfected
                         });
-                    }
-                    else {
+                    } else {
                         this.setState({
                             worseActiveCasesDate: "Yesterday",
                             worseActiveCasesNumber: response.data.active
@@ -166,14 +170,13 @@ class Country extends Component<CountryProps> {
                     }
                 }
 
-                if (this.state.todayCases > this.state.worseNewCasesNumber || response.data.todayCases > this.state.worseNewCasesNumber){
-                    if (this.state.todayCases > response.data.todayCases){
+                if (this.state.todayCases > this.state.worseNewCasesNumber || response.data.todayCases > this.state.worseNewCasesNumber) {
+                    if (this.state.todayCases > response.data.todayCases) {
                         this.setState({
                             worseNewCasesDate: "Today",
                             worseNewCasesNumber: this.state.todayCases
                         });
-                    }
-                    else {
+                    } else {
                         this.setState({
                             worseNewCasesDate: "Yesterday",
                             worseNewCasesNumber: response.data.todayCases
@@ -181,14 +184,13 @@ class Country extends Component<CountryProps> {
                     }
                 }
 
-                if (this.state.todayDeaths > this.state.worseNewDeathsNumber || response.data.todayDeaths > this.state.worseNewDeathsNumber){
-                    if (activeCasesChange > 0){
+                if (this.state.todayDeaths > this.state.worseNewDeathsNumber || response.data.todayDeaths > this.state.worseNewDeathsNumber) {
+                    if (activeCasesChange > 0) {
                         this.setState({
                             worseNewDeathsDate: "Today",
                             worseNewDeathsNumber: this.state.todayDeaths
                         });
-                    }
-                    else {
+                    } else {
                         this.setState({
                             worseNewDeathsDate: "Yesterday",
                             worseNewDeathsNumber: response.data.todayDeaths
@@ -205,7 +207,7 @@ class Country extends Component<CountryProps> {
         //this.setState({showGraphs: true});
         const myRef = React.createRef();
         //document.findElementById("test1").scrollIntoView({ behavior: 'smooth', block: 'start' });
-        document.querySelector("#test1").scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelector("#test1").scrollIntoView({behavior: 'smooth', block: 'start'});
     };
 
     render() {
@@ -235,7 +237,8 @@ class Country extends Component<CountryProps> {
                             <li className="card__item">Worse Day: <span>{this.state.worseNewCasesDate}</span></li>
                             <li className="card__item">Today: <span>{this.state.todayCases}</span></li>
                             <li className="card__item">Last 7 days: <span>{this.state.lastSevenDaysNewCases}</span></li>
-                            <li className="card__item">Last 7 days Average: <span>{(this.state.lastSevenDaysNewCases / 7).toFixed(2)}</span>
+                            <li className="card__item">Last 7 days
+                                Average: <span>{(this.state.lastSevenDaysNewCases / 7).toFixed(2)}</span>
                             </li>
                         </ul>
                     </div>
@@ -243,9 +246,12 @@ class Country extends Component<CountryProps> {
                         <h3 className="card__title">Active Cases</h3>
                         <ul className="card__list">
                             <li className="card__item">Worse Day: <span>{this.state.worseActiveCasesDate}</span></li>
-                            <li className="card__item">Currently Infected: <span>{this.state.currentlyInfected}</span></li>
-                            <li className="card__item">Critical Condition: <span>{this.state.criticalCondition}</span></li>
-                            <li className="card__item">Change from yesterday: <span>{this.state.activeCasesChange}%</span></li>
+                            <li className="card__item">Currently Infected: <span>{this.state.currentlyInfected}</span>
+                            </li>
+                            <li className="card__item">Critical Condition: <span>{this.state.criticalCondition}</span>
+                            </li>
+                            <li className="card__item">Change from
+                                yesterday: <span>{this.state.activeCasesChange}%</span></li>
                         </ul>
                     </div>
                     <div className="card card--deaths">
@@ -253,36 +259,38 @@ class Country extends Component<CountryProps> {
                         <ul className="card__list">
                             <li className="card__item">Worse Day: <span>{this.state.worseNewDeathsDate}</span></li>
                             <li className="card__item">Today: <span>{this.state.todayDeaths}</span></li>
-                            <li className="card__item">Last 7 days: <span>{this.state.lastSevenDaysNewDeaths}</span></li>
-                            <li className="card__item">Last 7 days average: <span>{(this.state.lastSevenDaysNewDeaths / 7).toFixed(2)}</span>
+                            <li className="card__item">Last 7 days: <span>{this.state.lastSevenDaysNewDeaths}</span>
+                            </li>
+                            <li className="card__item">Last 7 days
+                                average: <span>{(this.state.lastSevenDaysNewDeaths / 7).toFixed(2)}</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
 
-                    <div id="section03" className="demo">
-                        <a onClick={this.showGraphs}><span></span>Show Graphs</a>
-                    </div>
-
-                <div id="test1" className="graphs"
-                     style={this.state.showGraphs ? {display: "grid"} : {display: "grid"}} ref="test1">
-
-                    <div className="barChart country__graph">
-                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
-                                         keys={'Cases'} AxisLeftLegend={'Daily cases'}/>
-                    </div>
-
-                    <div className="barChart country__graph">
-                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
-                                         keys={'Deaths'} AxisLeftLegend={'Daily deaths'}/>
-                    </div>
-
-                    <div className="barChart country__graph">
-                        <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
-                                         keys={'ActiveCases'} AxisLeftLegend={'Currently Infected'}/>
-                    </div>
+                <div id="section03" className="demo">
+                    <a onClick={this.showGraphs}><span></span>Show Graphs</a>
                 </div>
+                <Suspense fallback={<p>uri</p>}>
+                    <div id="test1" className="graphs" ref="test1">
+
+                        <div className="barChart country__graph">
+                            <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
+                                             keys={'Cases'} AxisLeftLegend={'Daily cases'}/>
+                        </div>
+
+                        <div className="barChart country__graph">
+                            <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
+                                             keys={'Deaths'} AxisLeftLegend={'Daily deaths'}/>
+                        </div>
+
+                        <div className="barChart country__graph">
+                            <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
+                                             keys={'ActiveCases'} AxisLeftLegend={'Currently Infected'}/>
+                        </div>
+                    </div>
+                </Suspense>
             </div>
         );
     }
