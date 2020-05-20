@@ -1,4 +1,5 @@
-import _ from 'lodash/';
+import _sortBy from 'lodash/sortBy';
+import map from 'lodash/map';
 import React, {Component} from 'react';
 import {Table} from 'semantic-ui-react';
 import axios from 'axios';
@@ -91,7 +92,7 @@ class CoronaTable extends Component<AllProps> {
         if (column !== clickedColumn) {
             this.setState({
                 column: clickedColumn,
-                data: _.sortBy(data, [clickedColumn]),
+                data: _sortBy(data, [clickedColumn]),
                 direction: 'ascending',
             });
 
@@ -106,7 +107,7 @@ class CoronaTable extends Component<AllProps> {
 
     setSort = (data, direction, clickedColumn) => {
         if (clickedColumn) {
-            let temp = _.sortBy(data, [clickedColumn]);
+            let temp = _sortBy(data, [clickedColumn]);
             if (direction === 'descending') {
                 temp.reverse();
             }
@@ -184,7 +185,7 @@ class CoronaTable extends Component<AllProps> {
                             </Table.Row>
                         </Table.Header>
                         <Table.Body>
-                            {_.map(data, ({country, cases, todayCases, deaths, active, activeChange}) => (
+                            {map(data, ({country, cases, todayCases, deaths, active, activeChange}) => (
                                 <Table.Row key={country}>
                                     <Table.Cell><a href={`/country/` + country}>{country}</a></Table.Cell>
                                     <Table.Cell>{cases}</Table.Cell>
