@@ -3,9 +3,6 @@ import {Link} from "react-router-dom";
 
 class Header extends Component {
 
-    componentDidMount(): void {
-    }
-
     render() {
         return (
             <header className="header">
@@ -35,7 +32,7 @@ class Header extends Component {
             </header>
         );
     }
-};
+}
 
 export default Header;
 

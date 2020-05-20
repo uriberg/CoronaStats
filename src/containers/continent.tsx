@@ -17,31 +17,14 @@ class Continent extends Component<ContinentProps> {
         continent: this.props.match.params.continent
     };
 
-    componentDidMount(): void {
-        console.log(this.props.match.params);
-        console.log(this.state.continent);
-    }
-
-    componentDidUpdate(prevProps: Readonly<ContinentProps>, prevState: Readonly<{}>, snapshot?: any): void {
-        //console.log('updated');
-        //console.log(this.state.continent);
-        //console.log(this.props.match);
-        // if (prevProps.match.params.continent !== this.props.match.params.continent){
-        //     console.log(this.props.match.params.continent);
-        //     this.setState({continent: this.props.match.params.continent});
-        // }
-    }
-
     render() {
         const continent = this.props.match.params.continent;
 
         return (
-            <div className="continent">
                 <CoronaTable filter={true} continent={Continents[continent]}/>
-            </div>
         );
     }
-};
+}
 
 export default Continent;
 
