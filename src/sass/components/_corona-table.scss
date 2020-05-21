@@ -71,6 +71,11 @@ td {
   }
 }
 
+
+
+
+
+
 svg g line + text[text-anchor="start"]{
   display: none;
 }
@@ -94,6 +99,8 @@ svg g:nth-child(8n + 1) line + text[text-anchor="start"]{
 
 svg g rect{
   stroke-width: 1px;
+//stroke: rgb(232, 193, 160);
+  //fill: rgb(232, 193, 160);;
 }
 
 .barChart {

@@ -3,12 +3,11 @@ import {RouteComponentProps} from 'react-router-dom';
 import axios from "axios";
 import dateformat from "dateformat";
 
-import Spinner from '../components/UI/Spinner';
+
 import {Countries} from "../constants/corona-table";
 import {lineGraphSettings} from "../constants/barChart";
 const MyResponsiveBar = React.lazy(() => import('../components/barChart'));
-//import MyResponsiveBar from "../components/barChart";
-
+const MyResponsiveLine = React.lazy(() => import('../components/lineChart'));
 
 
 interface CountryRouterProps {
@@ -23,6 +22,7 @@ class Country extends Component<CountryProps> {
 
     state = {
         dailyCases: [],
+        activeCases: [],
         firstCase: "",
         totalCases: "",
         totalDeaths: "",
@@ -53,6 +53,12 @@ class Country extends Component<CountryProps> {
                 console.log(response.data);
                 let data = response.data;
                 let temp = [];
+                let activeTemp= [ {
+                    id: "ActiveCases",
+                    color: "hsl(308, 70%, 50%)",
+                    data: []
+                }];
+
                 let firstDate = dateformat(data[0].Date, "mmm dS");
                 console.log(firstDate);
                 let worseActiveCasesNumber = data[0].Active;
@@ -69,16 +75,28 @@ class Country extends Component<CountryProps> {
                     Deaths: data[0].Deaths,
                     ActiveCases: data[0].Active
                 };
+
+                const activeFirstObject = {
+                    x: firstDate,
+                    y: data[0].Active
+                };
                 console.log(worseNewCasesNumber);
                 temp.push(firstDayObject);
+                activeTemp[0].data.push(activeFirstObject);
                 for (let i = 1; i < data.length; i++) {
+
+                    let activeDaily = {
+                        x: dateformat(data[i].Date, "mmm dS"),
+                        y: data[i].Active
+                    };
+
                     let daily = {
                         x: i,
                         y: data[i].Confirmed - data[i - 1].Confirmed,
                         Date: dateformat(data[i].Date, "mmm dS"),
                         Cases: data[i].Confirmed - data[i - 1].Confirmed,
                         Deaths: data[i].Deaths - data[i - 1].Deaths,
-                        ActiveCases: data[i].Active
+                        ActiveCases: data[i].Active,
                     };
                     if (daily.ActiveCases > worseActiveCasesNumber) {
                         worseActiveCasesNumber = daily.ActiveCases;
@@ -95,6 +113,7 @@ class Country extends Component<CountryProps> {
 
                     console.log(daily);
                     temp.push(daily);
+                    activeTemp[0].data.push(activeDaily);
                 }
 
                 let lastSevenDaysNewCases = 0;
@@ -110,6 +129,7 @@ class Country extends Component<CountryProps> {
                 console.log(temp);
                 this.setState({
                     dailyCases: temp,
+                    activeCases: activeTemp,
                     firstCase: firstDayObject.Date,
                     worseActiveCasesNumber: worseActiveCasesNumber,
                     worseActiveCasesDate: worseActiveCasesDate,
@@ -285,10 +305,15 @@ class Country extends Component<CountryProps> {
                                              keys={'Deaths'} AxisLeftLegend={'Daily deaths'}/>
                         </div>
 
+                        {/*<div className="barChart country__graph">*/}
+                        {/*    <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}*/}
+                        {/*                     keys={'ActiveCases'} AxisLeftLegend={'Currently Infected'}/>*/}
+                        {/*</div>*/}
+
                         <div className="barChart country__graph">
-                            <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
-                                             keys={'ActiveCases'} AxisLeftLegend={'Currently Infected'}/>
+                            <MyResponsiveLine data={this.state.activeCases} theme={lineGraphSettings.theme}/>
                         </div>
+
                     </div>
                 </Suspense>
             </div>
