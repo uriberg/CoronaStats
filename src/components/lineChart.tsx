@@ -16,8 +16,9 @@ const MyResponsiveLine = ({ data, theme /* see data tab */ }) => (
                 </div>
             )
         }}
+        theme={theme}
         data={data}
-        margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+        margin={{ top: 50, right: 30, bottom: 50, left: 50 }}
         xScale={{ type: 'point' }}
         yScale={{ type: 'linear', min: 0,  max: 'auto', stacked: true, reverse: false }}
         axisTop={null}
@@ -51,6 +52,7 @@ const MyResponsiveLine = ({ data, theme /* see data tab */ }) => (
         pointLabel="y"
         pointLabelYOffset={-12}
         enableCrosshair={false}
+
         //enableSlices='x'
         useMesh={true}
         legends={[
@@ -65,9 +67,9 @@ const MyResponsiveLine = ({ data, theme /* see data tab */ }) => (
                 itemWidth: 80,
                 itemHeight: 20,
                 itemOpacity: 0.75,
-                symbolSize: 12,
-                symbolShape: 'circle',
-                symbolBorderColor: 'rgba(0, 0, 0, .5)',
+                symbolSize: 10,
+                symbolShape: 'square',
+               // symbolBorderColor: 'rgba(0, 0, 0, .5)',
                 effects: [
                     {
                         on: 'hover',
