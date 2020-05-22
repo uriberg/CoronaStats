@@ -1,7 +1,7 @@
 import _sortBy from 'lodash/sortBy';
 import map from 'lodash/map';
 import React, {Component} from 'react';
-import {Table} from 'semantic-ui-react';
+import Table from 'semantic-ui-react/dist/commonjs/collections/Table';
 import axios from 'axios';
 import Spinner from '../components/UI/Spinner';
 
