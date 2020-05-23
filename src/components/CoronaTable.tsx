@@ -1,4 +1,4 @@
-import sortBy from 'lodash/sortBy';
+import sortBy from 'lodash.sortby';
 import map from 'lodash/map';
 import React, {Component} from 'react';
 import Table from 'semantic-ui-react/dist/commonjs/collections/Table';

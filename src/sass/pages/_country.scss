@@ -37,18 +37,17 @@
     color: mediumaquamarine;
     font-weight: 700;
     grid-row: 1 / 1;
-    grid-column: 1 / -1;
 
     padding: 10rem 0 20rem 0;
 
-    background-image: linear-gradient(to right bottom, rgba(16, 9, 9, 0.8), rgba(88, 40, 40, 0.8)), url(../../img/engin-akyurt-KtYvqysesC4-unsplash.jpg);
+    background-image: linear-gradient(to right bottom, rgba(16, 9, 9, 0.8), rgba(88, 40, 40, 0.8)), url(../../img/engin-akyurt-KtYvqysesC4-unsplash_1.webp);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     //height: 90vh;
 
     @media only screen and (max-width: 900px){
-      background-image: linear-gradient(to right bottom, rgba(16, 9, 9, 0.8), rgba(88, 40, 40, 0.8)), url(../../img/isaac-quesada-U0apbBgkOeQ-unsplash.jpg);
+      background-image: linear-gradient(to right bottom, rgba(16, 9, 9, 0.8), rgba(88, 40, 40, 0.8)), url(../../img/isaac-quesada-U0apbBgkOeQ-unsplash.webp);
       //grid-template-rows: repeat(4, 15vh);
       padding-top: 10rem;
     }
