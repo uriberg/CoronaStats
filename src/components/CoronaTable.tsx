@@ -200,32 +200,33 @@ class CoronaTable extends Component<AllProps> {
                                 </Table.HeaderCell>
                             </Table.Row>
                         </Table.Header>
-                        <Table.Body>
-                            {map(data, ({country, cases, todayCases, deaths, active, activeChange}) => (
-                                <LazyLoad>
-                                    <Table.Row key={country}>
-                                        <Table.Cell><a href={`/country/` + country}>{country}</a></Table.Cell>
-                                        <Table.Cell>{cases}</Table.Cell>
-                                        <Table.Cell>{todayCases}</Table.Cell>
-                                        <Table.Cell>{deaths}</Table.Cell>
-                                        <Table.Cell>{active}</Table.Cell>
-                                        <Table.Cell>{activeChange + "%"}</Table.Cell>
-                                    </Table.Row>
-                                </LazyLoad>
-                            ))}
-                            {/*<Virtuoso*/}
-                            {/*    style={{ width: 'auto', height: '100vh' }}*/}
-                            {/*    totalCount={200}*/}
-                            {/*    item={index => <Table.Row key={data[index]?.country}>*/}
-                            {/*        <Table.Cell><a href={`/country/` + data[index]?.country}>{data[index]?.country}</a></Table.Cell>*/}
-                            {/*        <Table.Cell>{data[index]?.cases}</Table.Cell>*/}
-                            {/*        <Table.Cell>{data[index]?.todayCases}</Table.Cell>*/}
-                            {/*        <Table.Cell>{data[index]?.deaths}</Table.Cell>*/}
-                            {/*        <Table.Cell>{data[index]?.active}</Table.Cell>*/}
-                            {/*        <Table.Cell>{data[index]?.activeChange + "%"}</Table.Cell>*/}
-                            {/*    </Table.Row>}*/}
-                            {/*/>*/}
-                        </Table.Body>
+
+                            <Table.Body>
+                                {map(data, ({country, cases, todayCases, deaths, active, activeChange}) => (
+                                        <Table.Row key={country}>
+                                            <Table.Cell><a href={`/country/` + country}>{country}</a></Table.Cell>
+                                            <Table.Cell>{cases}</Table.Cell>
+                                            <Table.Cell>{todayCases}</Table.Cell>
+                                            <Table.Cell>{deaths}</Table.Cell>
+                                            <Table.Cell>{active}</Table.Cell>
+                                            <Table.Cell>{activeChange + "%"}</Table.Cell>
+                                        </Table.Row>
+                                ))}
+
+
+                                {/*<Virtuoso*/}
+                                {/*    style={{ width: 'auto', height: '100vh' }}*/}
+                                {/*    totalCount={200}*/}
+                                {/*    item={index => <Table.Row key={data[index]?.country}>*/}
+                                {/*        <Table.Cell><a href={`/country/` + data[index]?.country}>{data[index]?.country}</a></Table.Cell>*/}
+                                {/*        <Table.Cell>{data[index]?.cases}</Table.Cell>*/}
+                                {/*        <Table.Cell>{data[index]?.todayCases}</Table.Cell>*/}
+                                {/*        <Table.Cell>{data[index]?.deaths}</Table.Cell>*/}
+                                {/*        <Table.Cell>{data[index]?.active}</Table.Cell>*/}
+                                {/*        <Table.Cell>{data[index]?.activeChange + "%"}</Table.Cell>*/}
+                                {/*    </Table.Row>}*/}
+                                {/*/>*/}
+                            </Table.Body>
                     </table>
                 </div>
             </>

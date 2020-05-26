@@ -292,7 +292,7 @@ class Country extends Component<CountryProps> {
                 <div id="section03" className="demo">
                     <a onClick={this.showGraphs}><span></span>Show Graphs</a>
                 </div>
-                <Suspense fallback={<p>uri</p>}>
+                <Suspense fallback={<p>Loading...</p>}>
                     <div id="test1" className="graphs" ref="test1">
 
                         <div className="barChart country__graph">
