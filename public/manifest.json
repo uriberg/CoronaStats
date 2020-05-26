@@ -4,8 +4,9 @@
   "icons": [
     {
       "src": "covid19.ico",
-      "sizes": "128X128 64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "sizes": "192X192 128X128 64x64 32x32 24x24 16x16",
+      /*"type": "image/x-icon",*/
+      "type": "image/png"
     }
   ],
   "start_url": ".",
