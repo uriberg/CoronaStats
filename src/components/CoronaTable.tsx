@@ -43,6 +43,7 @@ class CoronaTable extends Component<AllProps> {
 
 
     componentDidUpdate(prevProps: Readonly<AllProps>, prevState: any, snapshot?: any): void {
+        console.log('table has been updated!');
         if (prevProps.continent !== this.props.continent) {
             this.setState({continent: this.props.continent, loading: true});
             this.init();
@@ -127,20 +128,31 @@ class CoronaTable extends Component<AllProps> {
             if (direction === 'descending') {
                 temp.reverse();
             }
+
+            // this.setState({
+            //              data: temp,
+            //              direction: direction === 'ascending' ? 'ascending' : 'descending',
+            //              loading: false
+            //          });
             window.setTimeout(() => {
                 this.setState({
                     data: temp,
                     direction: direction === 'ascending' ? 'ascending' : 'descending',
                     loading: false
                 });
-            }, 500);
+            }, 400);
         } else {
+            console.log('set sort - the timoeut');
+            // this.setState({
+            //     data: data,
+            //     loading: false
+            // });
             window.setTimeout(() => {
                 this.setState({
                     data: data,
                     loading: false
                 });
-            }, 500);
+            }, 400);
         }
     };
 

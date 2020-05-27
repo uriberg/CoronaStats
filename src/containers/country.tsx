@@ -166,6 +166,10 @@ class Country extends Component<CountryProps> {
             });
     }
 
+    componentDidUpdate(prevProps: Readonly<CountryProps>, prevState: Readonly<{}>, snapshot?: any): void {
+        console.log('Country Updated!');
+    }
+
     getYesterdayStats = () => {
         axios.get("https://disease.sh/v2/countries/" + this.props.match.params.country + "?yesterday=true")
             .then(response => {

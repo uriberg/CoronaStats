@@ -3,6 +3,14 @@ import {Link} from "react-router-dom";
 
 class Header extends Component {
 
+   componentDidUpdate(prevProps: Readonly<any>, prevState: Readonly<any>, snapshot?: any): void {
+       console.log('header updated');
+   }
+
+   componentDidMount(): void {
+       console.log('header mounted');
+   }
+
     render() {
         return (
             <header className="header">

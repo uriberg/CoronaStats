@@ -9,14 +9,14 @@ import Header from "./layout/header";
 import "./sass/main.scss";
 
 const routing = (
-    <Router>
+        <Router>
             <Header/>
-                <Switch>
-                    <Route exact path="/" component={Continent}/>
-                    <Route path="/continent/:continent" component={Continent}/>
-                    <Route path="/country/:country" component={props => (<Country {...props} />)}/>
-                </Switch>
-    </Router>
+            <Switch>
+                <Route exact path="/" component={Continent}/>
+                <Route path="/continent/:continent" component={Continent}/>
+                <Route path="/country/:country" component={Country}/>
+            </Switch>
+        </Router>
 );
 
 
