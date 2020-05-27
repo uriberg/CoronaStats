@@ -4,9 +4,7 @@ import React, {Component} from 'react';
 import Table from 'semantic-ui-react/dist/commonjs/collections/Table';
 import axios from 'axios';
 import Spinner from '../components/UI/Spinner';
-import {FixedSizeList as List} from 'react-window';
-import {Virtuoso} from 'react-virtuoso';
-import LazyLoad from 'react-lazyload';
+
 
 interface AllProps {
     filter: boolean
