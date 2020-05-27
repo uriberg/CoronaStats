@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-import 'semantic-ui-css/semantic.min.css';
+//import 'semantic-ui-css/semantic.min.css';
+import 'fomantic-ui-css/semantic.css';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 import Continent from "./containers/continent";
 import Country from "./containers/country";

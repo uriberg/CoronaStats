@@ -5,69 +5,69 @@
   box-sizing: inherit; /*this makes the box-sizing property to be inherited(by default it's not inherited) */
 }
 
-@font-face {
-  font-family: "Lato";
-  font-weight: 400;
-  font-style: normal;
-  src: url("https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXiWtFCc.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Lato";
-  font-weight: 700;
-  font-style: normal;
-  src: url("https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXiWtFCc.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Lato";
-  font-weight: 400;
-  font-style: italic;
-  src: url("https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXiWtFCc.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Lato";
-  font-weight: 700;
-  font-style: italic;
-  src: url("https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXiWtFCc.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Lato";
-  font-weight: 400;
-  font-style: normal;
-  src: url("https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Lato";
-  font-weight: 700;
-  font-style: normal;
-  src: url("https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Lato";
-  font-weight: 400;
-  font-style: italic;
-  src: url("https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2") format("woff2");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Lato";
-  font-weight: 700;
-  font-style: italic;
-  src: url("https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2") format("woff2");
-  font-display: swap;
-}
+//@font-face {
+//  font-family: "Lato";
+//  font-weight: 400;
+//  font-style: normal;
+//  src: url("https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXiWtFCc.woff2") format("woff2");
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: "Lato";
+//  font-weight: 700;
+//  font-style: normal;
+//  src: url("https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXiWtFCc.woff2") format("woff2");
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: "Lato";
+//  font-weight: 400;
+//  font-style: italic;
+//  src: url("https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXiWtFCc.woff2") format("woff2");
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: "Lato";
+//  font-weight: 700;
+//  font-style: italic;
+//  src: url("https://fonts.gstatic.com/s/lato/v16/S6uyw4BMUTPHjx4wXiWtFCc.woff2") format("woff2");
+//  font-display: swap;
+//}
+//
+//@font-face {
+//  font-family: "Lato";
+//  font-weight: 400;
+//  font-style: normal;
+//  src: local('Lato Regular'), local('Lato-Regular'), url("https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2") format("woff2");
+//  font-display: swap !important;
+//}
+//
+//@font-face {
+//  font-family: "Lato";
+//  font-weight: 700;
+//  font-style: normal;
+//  src: local('Lato Bold'), local('Lato-Bold'), url("https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2") format("woff2");
+//  font-display: swap !important;
+//}
+//
+//@font-face {
+//  font-family: "Lato";
+//  font-weight: 400;
+//  font-style: italic;
+//  src: url("https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2") format("woff2");
+//  font-display: swap !important;
+//}
+//
+//@font-face {
+//  font-family: "Lato";
+//  font-weight: 700;
+//  font-style: italic;
+//  src: url("https://fonts.gstatic.com/s/lato/v16/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2") format("woff2");
+//  font-display: swap !important;
+//}
 
 html {
   /*this defines what 1rem is*/
@@ -81,7 +81,7 @@ html {
 
 body {
   box-sizing: border-box;
-  padding: 0rem;
+  padding: 0;
   overflow: auto !important;
   font-size: inherit !important;
 
