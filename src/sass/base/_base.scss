@@ -89,10 +89,10 @@ body {
     padding: 0;
   }
 
-  &::after{
-    position:absolute; width:0; height:0; overflow:hidden; z-index:-1; // hide images
-    content:url(../../img/engin-akyurt-KtYvqysesC4-unsplash_1.webp) url(../../img/isaac-quesada-U0apbBgkOeQ-unsplash.webp);   // load images
-  }
+  //&::after{
+  //  position:absolute; width:0; height:0; overflow:hidden; z-index:-1; // hide images
+  //  content:url(../../img/engin-akyurt-KtYvqysesC4-unsplash_1.webp) url(../../img/isaac-quesada-U0apbBgkOeQ-unsplash.webp);   // load images
+  //}
 }
 
 
