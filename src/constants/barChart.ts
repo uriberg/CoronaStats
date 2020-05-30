@@ -7,9 +7,9 @@ export const lineGraphSettings = {
                 position: "absolute",
                 left: "50%",
                 transform: "translateX(-50%)",
-                "margin-top": 25,
+                marginTop: 25,
                 marginRight: 50,
-                "font-size": "1.5rem"
+                fontSize: "1.5rem"
             }
         }
     },

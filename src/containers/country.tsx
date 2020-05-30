@@ -110,8 +110,6 @@ class Country extends Component<CountryProps> {
                         worseNewDeathsNumber = daily.Deaths;
                         worseNewDeathsDate = dateformat(data[i].Date, "mmm dS");
                     }
-
-                    console.log(daily);
                     temp.push(daily);
                     activeTemp[0].data.push(activeDaily);
                 }
@@ -229,7 +227,6 @@ class Country extends Component<CountryProps> {
 
     showGraphs = () => {
         //this.setState({showGraphs: true});
-        const myRef = React.createRef();
         //document.findElementById("test1").scrollIntoView({ behavior: 'smooth', block: 'start' });
         document.querySelector("#test1").scrollIntoView({behavior: 'smooth', block: 'start'});
     };
@@ -297,7 +294,7 @@ class Country extends Component<CountryProps> {
                     <a onClick={this.showGraphs}><span></span>Show Graphs</a>
                 </div>
                 <Suspense fallback={<p>Loading...</p>}>
-                    <div id="test1" className="graphs" ref="test1">
+                    <div id="test1" className="graphs">
 
                         <div className="barChart country__graph">
                             <MyResponsiveBar data={this.state.dailyCases} theme={lineGraphSettings.theme}
@@ -323,7 +320,7 @@ class Country extends Component<CountryProps> {
             </div>
         );
     }
-};
+}
 
 export default Country;
 

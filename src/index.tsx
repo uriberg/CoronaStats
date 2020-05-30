@@ -1,29 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
-//import 'semantic-ui-css/semantic.min.css';
 import 'fomantic-ui-css/semantic.css';
-import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
-import Continent from "./containers/continent";
-import Country from "./containers/country";
-import Header from "./layout/header";
 import "./sass/main.scss";
-
-const routing = (
-        <Router>
-            <Header/>
-            <Switch>
-                <Route exact path="/" component={Continent}/>
-                <Route path="/continent/:continent" component={Continent}/>
-                <Route path="/country/:country" component={Country}/>
-            </Switch>
-        </Router>
-);
-
+import App from './App';
 
 ReactDOM.render(
     <React.StrictMode>
-        {routing}
+        <App/>
     </React.StrictMode>,
     document.getElementById('root')
 );
