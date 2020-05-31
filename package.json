@@ -16,6 +16,7 @@
     "axios": "^0.19.2",
     "dateformat": "^3.0.3",
     "fomantic-ui-css": "^2.8.4",
+    "lazysizes": "^5.2.2",
     "lodash": "^4.17.15",
     "nivo": "^0.31.0",
     "react": "^16.13.1",

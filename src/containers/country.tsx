@@ -2,6 +2,7 @@ import React, {Component, Suspense} from 'react';
 import {RouteComponentProps} from 'react-router-dom';
 import axios from "axios";
 import dateformat from "dateformat";
+import 'lazysizes';
 
 
 import {Countries} from "../constants/corona-table";
@@ -237,9 +238,9 @@ class Country extends Component<CountryProps> {
                 <div className="country__name">{this.props.match.params.country}</div>
                 <div className="country__cards">
                     <picture>
-                        <source srcSet="../img/engin-akyurt-KtYvqysesC4-unsplash_1.webp" media="(min-width: 900px)" type="image/webp" />
-                        <source srcSet="../img/isaac-quesada-U0apbBgkOeQ-unsplash.webp" media="(max-width: 900px)" type="image/webp" />
-                        <img src="../img/isaac-quesada-U0apbBgkOeQ-unsplash.webp" alt="background"/>
+                        <source data-srcSet="../img/engin-akyurt-KtYvqysesC4-unsplash_1.webp" media="(min-width: 900px)" type="image/webp" />
+                        <source data-srcSet="../img/isaac-quesada-U0apbBgkOeQ-unsplash.webp" media="(max-width: 900px)" type="image/webp" />
+                        <img    data-src="../img/engin-akyurt-KtYvqysesC4-unsplash_1-small.webp" alt="background" className="lazyload blur"/>
                     </picture>
                     {/*<img src="../img/engin-akyurt-KtYvqysesC4-unsplash_1.webp" alt="hapoel"/>*/}
                     <div className="card card--general">
