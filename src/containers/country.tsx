@@ -236,6 +236,12 @@ class Country extends Component<CountryProps> {
             <div className="country">
                 <div className="country__name">{this.props.match.params.country}</div>
                 <div className="country__cards">
+                    <picture>
+                        <source srcSet="../img/engin-akyurt-KtYvqysesC4-unsplash_1.webp" media="(min-width: 900px)" type="image/webp" />
+                        <source srcSet="../img/isaac-quesada-U0apbBgkOeQ-unsplash.webp" media="(max-width: 900px)" type="image/webp" />
+                        <img src="../img/isaac-quesada-U0apbBgkOeQ-unsplash.webp" alt="background"/>
+                    </picture>
+                    {/*<img src="../img/engin-akyurt-KtYvqysesC4-unsplash_1.webp" alt="hapoel"/>*/}
                     <div className="card card--general">
                         <h3 className="card__title">General</h3>
                         <ul className="card__list">
