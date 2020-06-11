@@ -84,14 +84,14 @@ svg g[transform="translate(0,0)"] line + text[text-anchor="middle"]{
   display: block;
 }
 
-svg g:nth-child(8n + 1) line + text[text-anchor="start"]{
+svg g:nth-child(9n + 1) line + text[text-anchor="start"]{
   display: block;
   @media only screen and(max-width: 600px)  {
     display: none;
   }
 }
 
-svg g:nth-child(8n + 1) line + text[text-anchor="start"]{
+svg g:nth-child(9n + 1) line + text[text-anchor="start"]{
   @media only screen and(max-width: 600px)  {
     display: block;
   }

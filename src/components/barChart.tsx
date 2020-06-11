@@ -13,7 +13,7 @@ const MyResponsiveBar = ({ data, theme, keys, AxisLeftLegend /* see data tab */ 
         keys={[ keys ]}
         indexBy="Date"
         margin={{ top: 50, right: 30, bottom: 50, left: 50 }}
-        padding={0.7}
+        padding={0.5}
         colors={{ scheme: 'nivo' }}
         defs={[
             {
@@ -33,20 +33,6 @@ const MyResponsiveBar = ({ data, theme, keys, AxisLeftLegend /* see data tab */ 
                 rotation: -45,
                 lineWidth: 6,
                 spacing: 10
-            }
-        ]}
-        fill={[
-            {
-                match: {
-                    id: 'fries'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'sandwich'
-                },
-                id: 'lines'
             }
         ]}
         axisTop={null}
