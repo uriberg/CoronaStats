@@ -38,7 +38,7 @@ class CoronaTable extends Component<AllProps> {
 
     getStats = () => {
         axios.all([
-            axios.get('https://disease.sh/v2/countries?yesterday=false'),
+            axios.get('https://corona.lmao.ninja/v2/countries?yesterday=false'),
             axios.get('https://corona.lmao.ninja/v2/countries?yesterday=true')
         ])
             .then(responseArr => {
