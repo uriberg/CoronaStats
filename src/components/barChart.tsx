@@ -47,12 +47,12 @@ const MyResponsiveBar = ({ data, theme, keys, AxisLeftLegend /* see data tab */ 
             tickValues: 2,
         }}
         axisLeft={{
-            tickSize: 5,
-            tickPadding: 5,
+            tickSize: 2,
+            tickPadding: 0,
             tickRotation: 0,
             legend: AxisLeftLegend,
             legendPosition: 'middle',
-            legendOffset: -40
+            legendOffset: -42
         }}
         labelSkipWidth={12}
         labelSkipHeight={12}

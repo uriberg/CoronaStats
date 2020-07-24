@@ -1,7 +1,7 @@
 
 export const lineGraphSettings = {
     theme: {
-        fontSize: '1.1rem',
+        fontSize: '1rem',
         tooltip: {
             container: {
                 position: "absolute",

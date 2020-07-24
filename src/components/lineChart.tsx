@@ -35,11 +35,11 @@ const MyResponsiveLine = ({ data, theme /* see data tab */ }) => (
         }}
         axisLeft={{
             orient: 'left',
-            tickSize: 5,
-            tickPadding: 5,
+            tickSize: 1,
+            tickPadding: 1,
             tickRotation: 0,
             legend: 'Currently Infected',
-            legendOffset: -40,
+            legendOffset: -44,
             legendPosition: 'middle'
         }}
         colors={{ scheme: 'nivo' }}
