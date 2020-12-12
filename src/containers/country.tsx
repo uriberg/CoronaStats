@@ -111,8 +111,10 @@ class Country extends Component<CountryProps> {
                         worseNewDeathsNumber = daily.Deaths;
                         worseNewDeathsDate = dateformat(data[i].Date, "mmm dS");
                     }
-                    temp.push(daily);
-                    activeTemp[0].data.push(activeDaily);
+                    if (!(i < 200 && i % 2 === 0)){
+                        temp.push(daily);
+                        activeTemp[0].data.push(activeDaily);
+                    }
                 }
 
                 let lastSevenDaysNewCases = 0;
